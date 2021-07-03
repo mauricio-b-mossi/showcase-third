@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Nav from "../../components/Nav";
 import Head from "next/head";
 import Image from "next/image";
 import Slider from "../../components/Slider";
@@ -26,7 +25,7 @@ const Index = () => {
 
         {isVisible ? (
           <>
-            <Nav />
+
             {/* El de abajo llegveria de llevar padding instead */}
             <motion.div className="min-h-screen bg-black flex flex-col items-center justify-center text-white font-body">
               <div className="grid grid-cols-2 min-h-screen justify-center items-center p-20">

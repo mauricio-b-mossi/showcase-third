@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import Nav from "../components/Nav";
 import Head from "next/head";
 import Image from "next/image";
 import Slider from "../components/Slider";
@@ -31,7 +30,7 @@ const AboutDemo = ({ about }) => {
 
         {isVisible ? (
           <>
-            <Nav />
+           
             <motion.div
               ref={constraintsRef}
               className="min-h-screen bg-black flex flex-col items-center justify-center text-white p-20 font-body"
