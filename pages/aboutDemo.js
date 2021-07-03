@@ -46,7 +46,12 @@ const AboutDemo = ({ about }) => {
               </div>
               <div className="p-24 flex justify-center items-center text-xxl text-white">
                 <div className="h-96 w-60 block">
-                  <DraggableImage
+                  {/* <DraggableImage
+                    style={"h-96 w-60 object-cover absolute"}
+                    src={"/BWBG.jpg"}
+                    constrain={constraintsRef}
+                  /> */}
+                  {/* <DraggableImage
                     style={"h-96 w-60 object-cover absolute"}
                     src={"/BWBG.jpg"}
                     constrain={constraintsRef}
@@ -54,13 +59,8 @@ const AboutDemo = ({ about }) => {
                   <DraggableImage
                     style={"h-96 w-60 object-cover absolute"}
                     src={"/BWBG.jpg"}
-                    constrain={constraintsRef}
-                  />
-                  <DraggableImage
-                    style={"h-96 w-60 object-cover absolute"}
-                    src={"/BWBG.jpg"}
-                    constrain={constraintsRef}
-                  />
+                    constrain={constraintsRef} */}
+                  {/* /> */}
                 </div>
               </div>
               <motion.div className=" bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">

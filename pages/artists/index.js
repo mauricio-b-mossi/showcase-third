@@ -28,7 +28,7 @@ const Index = () => {
             <motion.div className="min-h-screen bg-black flex flex-col items-center justify-center text-white font-body">
               <div className="grid grid-cols-2 min-h-screen justify-center items-center p-20">
                 {/* Images galley */}
-                <ImageGallery />
+                {/* <ImageGallery /> */}
                 {/* Title and text */}
                 <div className="flex flex-col justify-center items-center">
                   <h1 className="uppercase text-center text-9xl py-16 font-bold">
@@ -60,10 +60,10 @@ const Index = () => {
                     </p>
                   </div>
                 </div>
-                <ImageGallery />
+                {/* <ImageGallery /> */}
                 {/* Title and text */}
 
-                <ImageGallery />
+                {/* <ImageGallery /> */}
                 {/* Title and text */}
                 <div className="flex flex-col justify-center items-center">
                   <h1 className="uppercase text-center text-9xl py-16 font-bold">
