@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import Anim from "../components/Anim";
 import SideText from "../components/SideText.js";
 import { sanityClient } from "../sanity";
-import Slider from "../components/Slider";
 
 // Tabs to make:
 // Home

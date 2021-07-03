@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import Slider from "../../components/Slider";
 import { motion } from "framer-motion";
 import "vanilla-tilt";
 import ImageGallery from "../../components/ImageGallery";
