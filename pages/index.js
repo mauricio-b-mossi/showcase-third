@@ -58,9 +58,9 @@ const Home = ({ homeInfo }) => {
           <Link href="/">
             <a>
               {/* <HoverItems */}
-                text={"Home"}
+                {/* text={"Home"}
                 position={"text-white hover:text-red-300 cursor-pointer"}
-              />
+              /> */}
             </a>
           </Link>
           {/* <SideText sideText={JSON.stringify(home)} /> */}
@@ -76,9 +76,9 @@ const Home = ({ homeInfo }) => {
           <Link href="/artists">
             <a>
               {/* <HoverItems */}
-                text={"Artists"}
+                {/* text={"Artists"}
                 position={"text-white hover:text-yellow-300 cursor-pointer"}
-              />
+              /> */}
             </a>
           </Link>
         </div>
@@ -86,9 +86,9 @@ const Home = ({ homeInfo }) => {
           <Link href="/joinUs">
             <a>
               {/* <HoverItems */}
-                text={"Join Us"}
+                {/* text={"Join Us"}
                 position={"text-white hover:text-green-300 cursor-pointer"}
-              />
+              /> */}
             </a>
           </Link>
           {/* <SideText sideText={JSON.stringify(joinus)} /> */}
@@ -98,9 +98,9 @@ const Home = ({ homeInfo }) => {
           <Link href="/aboutDemo">
             <a>
               {/* <HoverItems */}
-                text={"About"}
+                {/* text={"About"}
                 position={"text-white hover:text-blue-300 cursor-pointer"}
-              />
+              /> */}
             </a>
           </Link>
         </div>
