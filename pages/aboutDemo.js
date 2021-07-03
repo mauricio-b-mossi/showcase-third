@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { sanityClient } from "../sanity";
-import DraggableImage from "../components/DraggableImage";
 
 const AboutDemo = ({ about }) => {
   const { title, mission, vision } = about[0];

@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import "vanilla-tilt";
-import ImageGallery from "../../components/ImageGallery";
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(true);

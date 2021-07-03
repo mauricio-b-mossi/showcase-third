@@ -1,11 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import HoverItems from "../components/HoverItems";
 import { motion, useCycle } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import Anim from "../components/Anim";
-import SideText from "../components/SideText.js";
 import { sanityClient } from "../sanity";
 
 // Tabs to make:
