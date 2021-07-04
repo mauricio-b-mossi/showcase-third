@@ -43,7 +43,9 @@ const JoinUs = () => {
             {/* remember the padding 20 */}
             <motion.div className="min-h-screen bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
               <div className="flex justify-center items-center h-full w-full bg-red-800">
-                <Image src="/artsyBG.jpg" alt="" layout="fill" />
+                <div>
+                  <Image src="/artsyBG.jpg" alt="" width="1600" height="900" priority />
+                </div>
               </div>
               <div className="flex flex-col justify-center items-center">
                 <h1 className="uppercase text-center text-9xl py-16 font-bold">

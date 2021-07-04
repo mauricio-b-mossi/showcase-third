@@ -43,11 +43,17 @@ const AboutDemo = ({ about }) => {
                   className="h-full w-full object-cover opacity-80"
                   src="/BWBG.jpg"
                   alt=""
+                  // width="1600"
+                  // height="900"
                   layout="fill"
+                  priority={true}
                 />
                 <h1 className="absolute text-xxl font-bold uppercase">About</h1>
               </div>
-              <div className="p-24 flex justify-center items-center text-xxl text-white">
+              <div className="p-24 flex justify-center items-center text-2xl text-white uppercase">
+                <div className="transform rotate-90 border-b-2 border-t-2   border-white">
+                  swipe swipe swipe
+                </div>
                 <div className="h-96 w-60 block">
                   <DraggableImage
                     style={"h-96 w-60 object-cover absolute"}
@@ -64,6 +70,9 @@ const AboutDemo = ({ about }) => {
                     src={"/BWBG.jpg"}
                     constrain={constraintsRef}
                   />
+                </div>
+                <div className="transform -rotate-90 border-b-2 border-t-2   border-white">
+                  swipe swipe swipe
                 </div>
               </div>
               <motion.div className=" bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">

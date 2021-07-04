@@ -11,7 +11,8 @@ const ImageGallery = () => {
         data-tilt-glare
         data-tilt-max-glare="0.8"
         alt=""
-        layout="fill"
+        width="1600" height="900"
+        priority={true}
       />
       <Image
         src="/BWBG.jpg"
@@ -19,7 +20,8 @@ const ImageGallery = () => {
         data-tilt-glare
         data-tilt-max-glare="0.8"
         alt=""
-        layout="fill"
+        width="1600" height="900"
+        priority={true}
       />
       <Image
         src="/BWBG.jpg"
@@ -27,7 +29,8 @@ const ImageGallery = () => {
         data-tilt-glare
         data-tilt-max-glare="0.8"
         alt=""
-        layout="fill"
+        width="1600" height="900"
+        priority={true}
       />
       <Image
         src="/BWBG.jpg"
@@ -35,7 +38,8 @@ const ImageGallery = () => {
         data-tilt-glare
         data-tilt-max-glare="0.8"
         alt=""
-        layout="fill"
+        width="1600" height="900"
+        priority={true}
       />
       <Image
         src="/BWBG.jpg"
@@ -43,7 +47,8 @@ const ImageGallery = () => {
         data-tilt-glare
         data-tilt-max-glare="0.8"
         alt=""
-        layout="fill"
+        width="1600" height="900"
+        priority={true}
       />
       <Image
         src="/BWBG.jpg"
@@ -51,7 +56,8 @@ const ImageGallery = () => {
         data-tilt-glare
         data-tilt-max-glare="0.8"
         alt=""
-        layout="fill"
+        width="1600" height="900"
+        priority={true}
       />
       <Image
         src="/BWBG.jpg"
@@ -59,7 +65,8 @@ const ImageGallery = () => {
         data-tilt-glare
         data-tilt-max-glare="0.8"
         alt=""
-        layout="fill"
+        width="1600" height="900"
+        priority={true}
       />
       <Image
         src="/BWBG.jpg"
@@ -67,7 +74,8 @@ const ImageGallery = () => {
         data-tilt-glare
         data-tilt-max-glare="0.8"
         alt=""
-        layout="fill"
+        width="1600" height="900"
+        priority={true}
       />
       <Image
         src="/BWBG.jpg"
@@ -75,7 +83,8 @@ const ImageGallery = () => {
         data-tilt-glare
         data-tilt-max-glare="0.8"
         alt=""
-        layout="fill"
+        width="1600" height="900"
+        priority={true}
       />
     </div>
   );

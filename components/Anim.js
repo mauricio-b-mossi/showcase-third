@@ -73,9 +73,16 @@ const Anim = ({ intro }) => {
                     duration: 2,
                   },
                 }}
-                className="absolute"
+                style={{position: 'absolute', height: '370px', width: '470px'}}
               >
-                <Image src="/showcase.webp" alt="" layout="fill" />
+                
+                  <Image
+                    src="/showcase.webp"
+                    alt=""
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                
               </motion.div>
 
               {/* </AnimatePresence> */}

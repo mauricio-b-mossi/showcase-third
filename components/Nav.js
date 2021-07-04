@@ -30,7 +30,13 @@ const Nav = () => {
                 className="fixed h-24 w-24 top-12 left-12 cursor-pointer"
               >
                 <a>
-                  <Image src="/showcase.webp" alt="" layout="fill" />
+                  {/* objectFit='contain' */}
+                  <Image
+                    src="/showcase.webp"
+                    alt=""
+                    layout="fill"
+                    objectFit="contain"
+                  />
                 </a>
               </div>
             </Link>

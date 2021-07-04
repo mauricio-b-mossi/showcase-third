@@ -54,7 +54,7 @@ const Home = ({ homeInfo }) => {
         <Link href="/">
           <div className="absolute h-24 w-24 top-12 left-12 cursor-pointer">
             <a>
-              <Image src="/showcase.webp" alt="" layout="fill" />
+              <Image src="/showcase.webp" alt="" layout='fill' objectFit='contain' />
             </a>
           </div>
         </Link>
@@ -69,12 +69,14 @@ const Home = ({ homeInfo }) => {
           </Link>
           <SideText sideText={JSON.stringify(home)} />
         </div>
-        <Image
-          className="absolute h-40 w-40 animate-spin-slow right-4 bottom-4 rounded-full"
+        {/* <Image
+          className="absolute animate-spin-slow right-4 bottom-4 rounded-full"
           src="/Product_0.svg"
           alt=""
-          layout="fill"
-        />
+          width="160"
+          height="160"
+
+        /> */}
         <div className="flex justify-center items-center m-4">
           <SideText sideText={JSON.stringify(artists)} />
           <Link href="/artists">
