@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import Nav from "../../components/Nav";
 import Head from "next/head";
 import Image from "next/image";
+import Slider from "../../components/Slider";
 import { motion } from "framer-motion";
 import "vanilla-tilt";
+import ImageGallery from "../../components/ImageGallery";
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -23,12 +26,12 @@ const Index = () => {
 
         {isVisible ? (
           <>
-
+            <Nav />
             {/* El de abajo llegveria de llevar padding instead */}
             <motion.div className="min-h-screen bg-black flex flex-col items-center justify-center text-white font-body">
               <div className="grid grid-cols-2 min-h-screen justify-center items-center p-20">
                 {/* Images galley */}
-                {/* <ImageGallery /> */}
+                <ImageGallery />
                 {/* Title and text */}
                 <div className="flex flex-col justify-center items-center">
                   <h1 className="uppercase text-center text-9xl py-16 font-bold">
@@ -60,10 +63,10 @@ const Index = () => {
                     </p>
                   </div>
                 </div>
-                {/* <ImageGallery /> */}
+                <ImageGallery />
                 {/* Title and text */}
 
-                {/* <ImageGallery /> */}
+                <ImageGallery />
                 {/* Title and text */}
                 <div className="flex flex-col justify-center items-center">
                   <h1 className="uppercase text-center text-9xl py-16 font-bold">

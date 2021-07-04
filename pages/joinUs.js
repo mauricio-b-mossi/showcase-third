@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Nav from "../components/Nav";
 import Head from "next/head";
 import Image from "next/image";
+import Slider from "../components/Slider";
 import { motion } from "framer-motion";
 
 // const marqueeVariants = {
@@ -37,7 +39,7 @@ const JoinUs = () => {
 
         {isVisible ? (
           <>
-   
+            <Nav />
             {/* remember the padding 20 */}
             <motion.div className="min-h-screen bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
               <div className="flex justify-center items-center h-full w-full bg-red-800">

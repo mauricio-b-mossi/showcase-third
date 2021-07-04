@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
+import Nav from "../components/Nav";
 import Head from "next/head";
 import Image from "next/image";
+import Slider from "../components/Slider";
 import { motion } from "framer-motion";
 import { sanityClient } from "../sanity";
+import DraggableImage from "../components/DraggableImage";
 
 const AboutDemo = ({ about }) => {
   const { title, mission, vision } = about[0];
@@ -28,7 +31,7 @@ const AboutDemo = ({ about }) => {
 
         {isVisible ? (
           <>
-           
+            <Nav />
             <motion.div
               ref={constraintsRef}
               className="min-h-screen bg-black flex flex-col items-center justify-center text-white p-20 font-body"
@@ -46,12 +49,7 @@ const AboutDemo = ({ about }) => {
               </div>
               <div className="p-24 flex justify-center items-center text-xxl text-white">
                 <div className="h-96 w-60 block">
-                  {/* <DraggableImage
-                    style={"h-96 w-60 object-cover absolute"}
-                    src={"/BWBG.jpg"}
-                    constrain={constraintsRef}
-                  /> */}
-                  {/* <DraggableImage
+                  <DraggableImage
                     style={"h-96 w-60 object-cover absolute"}
                     src={"/BWBG.jpg"}
                     constrain={constraintsRef}
@@ -59,8 +57,13 @@ const AboutDemo = ({ about }) => {
                   <DraggableImage
                     style={"h-96 w-60 object-cover absolute"}
                     src={"/BWBG.jpg"}
-                    constrain={constraintsRef} */}
-                  {/* /> */}
+                    constrain={constraintsRef}
+                  />
+                  <DraggableImage
+                    style={"h-96 w-60 object-cover absolute"}
+                    src={"/BWBG.jpg"}
+                    constrain={constraintsRef}
+                  />
                 </div>
               </div>
               <motion.div className=" bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
