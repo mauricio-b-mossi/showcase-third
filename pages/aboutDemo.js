@@ -34,7 +34,7 @@ const AboutDemo = ({ about }) => {
             <Nav />
             <motion.div
               ref={constraintsRef}
-              className="min-h-screen bg-black flex flex-col items-center justify-center text-white p-20 font-body"
+              className="min-h-screen bg-black flex flex-col items-center justify-center text-white p-20 font-body overflow-x-hidden"
             >
               {/* bg-black-white bg-cover bg-center */}
               <div className="relative flex justify-center bg-black items-center w-full h-screen ">
