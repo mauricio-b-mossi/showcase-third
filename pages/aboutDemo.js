@@ -34,7 +34,7 @@ const AboutDemo = ({ about }) => {
             <Nav />
             <motion.div
               ref={constraintsRef}
-              className="min-h-screen bg-black flex flex-col items-center justify-center text-white p-20 font-body overflow-x-hidden"
+              className="min-h-screen bg-black flex flex-col items-center justify-center text-white p-20 font-body "
             >
               {/* bg-black-white bg-cover bg-center */}
               <div className="relative flex justify-center bg-black items-center w-full h-screen ">
@@ -50,7 +50,7 @@ const AboutDemo = ({ about }) => {
                 />
                 <h1 className="absolute text-xxl font-bold uppercase">About</h1>
               </div>
-              <div className="p-24 flex justify-center items-center text-2xl text-white uppercase">
+              <div className="p-24 flex justify-center items-center text-2xl text-white uppercase overflow-x-hidden">
                 <div className="transform rotate-90 border-b-2 border-t-2   border-white">
                   swipe swipe swipe
                 </div>
