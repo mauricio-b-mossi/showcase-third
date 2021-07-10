@@ -5,24 +5,17 @@ import Image from "next/image";
 import Slider from "../components/Slider";
 import { motion } from "framer-motion";
 
-// const marqueeVariants = {
-//   animate: {
-//     x: [0, -1270],
-//     transition: {
-//       x: {
-//         repeat: Infinity,
-//         repeatType: "loop",
-//         duration: 5,
-//         ease: "linear",
-//       },
-//     },
-//   },
-// };
-
 const JoinUs = () => {
   // controls wether view is shown
   const [isVisible, setIsVisible] = useState(true);
 
+  // useEffect(() => {
+  //   console.log(window.innerWidth);
+  // }, []);
+
+  // 1366
+
+  // 1920
 
   function AnimationEnds() {
     setIsVisible(true);
@@ -39,6 +32,7 @@ const JoinUs = () => {
         {/* <Slider trigger={AnimationEnds} /> */}
         {isVisible ? (
           <>
+            {/* TODO: DESKTOP */}
             <div className="hidden md:block">
               <Nav />
 
@@ -54,28 +48,37 @@ const JoinUs = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col justify-center items-center">
-                  <h1 className="uppercase text-center text-7xl lg:text-8xl xl:text-9xl  py-16 font-bold">
+                <div className="flex flex-col justify-center items-center min-h-screen ">
+                  <h1 className="uppercase text-center text-7xl lg:text-8xl 2xl:text-9xl font-bold absolute top-1/4 ">
                     <div>Common</div>
-                    <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
+                    <div className="relative transform -translate-y-2 lg:-translate-y-4 2xl:-translate-y-8">
                       Join
                     </div>
-                    <div className="relative transform -translate-y-4 lg:-translate-y-8 xl:-translate-y-16">
+                    <div className="relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16">
                       us
                     </div>
                   </h1>
-                  <h3 className="uppercase font-bold">You know</h3>
-                  <p className="max-w-xs text-center">
-                    It isnt that difficult, just click the button below and send
-                    us yout art.
-                  </p>
-                  <div className="relative transform translate-y-16 bg-red-800 px-8 py-2 rounded-md animate-pulse hover:scale-125 active:scale-75 hover:animate-none ">
-                    <p>HERE</p>
+                  <div className="absolute bottom-12">
+                    <div className="relative">
+                      <div className="flex flex-col justify-center items-center py-8">
+                        <h3 className="uppercase font-bold">You know</h3>
+                        <p className="max-w-xs text-center">
+                          It isnt that difficult, just click the button below
+                          and send us yout art.
+                        </p>
+                      </div>
+                      <div className="flex justify-center items-center">
+                        <div className="bg-red-800 px-8 py-2 rounded-md animate-pulse hover:scale-125 active:scale-75 hover:animate-none  ">
+                          <p>HERE</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
+            {/* TODO: MOBIL */}
             <div className="block md:hidden">
               <Nav />
               {/* remember the padding 20 */}

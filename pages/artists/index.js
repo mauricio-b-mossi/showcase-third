@@ -4,8 +4,8 @@ import Head from "next/head";
 import Image from "next/image";
 import Slider from "../../components/Slider";
 import { motion } from "framer-motion";
-import "vanilla-tilt";
 import ImageGallery from "../../components/ImageGallery";
+import Swiper from "../../components/Swiper";
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -29,59 +29,79 @@ const Index = () => {
             <Nav />
             {/* El de abajo llegveria de llevar padding instead */}
             <motion.div className="min-h-screen bg-black flex flex-col items-center justify-center text-white font-body">
-              <div className="grid grid-cols-2 min-h-screen justify-center items-center p-20">
+              <div className="grid md:grid-cols-2 min-h-screen justify-center items-center py-20 sm:p-10 lg:p-20">
                 {/* Images galley */}
-                <ImageGallery />
-                {/* Title and text */}
-                <div className="flex flex-col justify-center items-center">
-                  <h1 className="uppercase text-center text-9xl py-16 font-bold">
-                    <div>Artes</div>
-                    <div className="relative transform -translate-y-8">
-                      Visuales
-                    </div>
-                  </h1>
-                  <div className="ma max-w-lg relative transform -translate-y-16 text-center">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Possimus minus assumenda non nesciunt enim? Praesentium
-                      ipsum fuga harum quaerat possimus!
-                    </p>
-                  </div>
+                {/* <div className="hidden">
+                  <ImageGallery />
+                </div> */}
+                <div className="hidden md:block">
+                  <Swiper />
                 </div>
-                <div className="flex flex-col justify-center items-center">
-                  <h1 className="uppercase text-center text-9xl py-16 font-bold">
+                {/* Title and text */}
+                <s className="flex flex-col justify-center items-center">
+                  <h1 className="uppercase text-center text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl py-4 md:py-16 font-bold">
                     <div>Artes</div>
-                    <div className="relative transform -translate-y-8">
+                    <div className="relative transform -translate-y-2 lg:-translate-y-4 2xl:-translate-y-8">
                       Visuales
                     </div>
                   </h1>
-                  <div className="ma max-w-lg relative transform -translate-y-16 text-center">
+                  <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xs md:text-base">
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Possimus minus assumenda non nesciunt enim? Praesentium
                       ipsum fuga harum quaerat possimus!
                     </p>
                   </div>
+                </s>
+                <div className="block md:hidden pb-16">
+                  <Swiper />
                 </div>
-                <ImageGallery />
-                {/* Title and text */}
-
-                <ImageGallery />
-                {/* Title and text */}
-                <div className="flex flex-col justify-center items-center">
-                  <h1 className="uppercase text-center text-9xl py-16 font-bold">
+                <s className="flex flex-col justify-center items-center">
+                  <h1 className="uppercase text-center text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl  py-4 md:py-16 font-bold">
                     <div>Artes</div>
-                    <div className="relative transform -translate-y-8">
+                    <div className="relative transform -translate-y-2 lg:-translate-y-4 2xl:-translate-y-8">
                       Visuales
                     </div>
                   </h1>
-                  <div className="ma max-w-lg relative transform -translate-y-16 text-center">
+                  <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xs md:text-base">
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Possimus minus assumenda non nesciunt enim? Praesentium
                       ipsum fuga harum quaerat possimus!
                     </p>
                   </div>
+                </s>
+                {/* <div className="hidden">
+                  <ImageGallery />
+                </div> */}
+                <div className="pb-16 md:pb-0">
+                  <Swiper />
+                </div>
+                {/* Title and text */}
+                <div className="hidden md:block">
+                  <Swiper />
+                </div>
+                {/* <div className="hidden">
+                  <ImageGallery />
+                </div> */}
+                {/* Title and text */}
+                <s className="flex flex-col justify-center items-center">
+                  <h1 className="uppercase text-center text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl py-4 md:py-16 font-bold">
+                    <div>Artes</div>
+                    <div className="relative transform -translate-y-2 lg:-translate-y-4 2xl:-translate-y-8">
+                      Visuales
+                    </div>
+                  </h1>
+                  <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xs md:text-base">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Possimus minus assumenda non nesciunt enim? Praesentium
+                      ipsum fuga harum quaerat possimus!
+                    </p>
+                  </div>
+                </s>
+                <div className="block md:hidden pb-16">
+                  <Swiper />
                 </div>
               </div>
             </motion.div>

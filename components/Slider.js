@@ -16,7 +16,7 @@ const Slider = ({ trigger }) => {
       <AnimatePresence exitBeforeEnter>
         {isSwitching && (
           <motion.div
-            className="absolute min-h-screen bg-black flex flex-col justify-center items-center inset-0 z-20 overflow-hidden"
+            className="absolute min-h-screen bg-black flex flex-col justify-center items-center inset-0 z-30 overflow-hidden"
             initial={{
               x: "100vw",
             }}
@@ -36,7 +36,14 @@ const Slider = ({ trigger }) => {
             }}
             // className="min-h-screen bg-black flex flex-col justify-center items-center"
           >
-            <Image src="/showcase.webp" alt="" layout="fill" />
+        
+              <Image
+                src="/showcase.webp"
+                alt=""
+                layout="fill"
+                objectFit="contain"
+              />
+         
           </motion.div>
         )}
       </AnimatePresence>
