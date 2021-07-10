@@ -21,13 +21,13 @@ const Nav = () => {
   return (
     <>
       <div>
-        <div className="font-body bg-black flex flex-col items-center justify-center uppercase  relative z-10 ">
+        <div className="font-body bg-black flex flex-col items-center justify-center uppercase  relative z-20 ">
           <nav>
             <Link href="/">
               <div
                 data-tilt
                 data-tilt-full-page-listening
-                className="fixed h-24 w-24 top-12 left-12 cursor-pointer"
+                className="fixed h-20 w-20 top-4 left-4 sm:h-24 sm:w-24 sm:top-12 sm:left-12  cursor-pointer"
               >
                 <a>
                   {/* objectFit='contain' */}
@@ -40,7 +40,7 @@ const Nav = () => {
                 </a>
               </div>
             </Link>
-            <div className="text-white text-sm font-normal fixed h-24 w-40 top-2 right-6 flex flex-col justify-center items-end">
+            <div className="text-white text-sm font-normal fixed h-24 w-40 top-4 right-6 flex flex-col justify-center items-end">
               <Link href="/">
                 <a>
                   <HoverNav

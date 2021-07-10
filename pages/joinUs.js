@@ -23,6 +23,7 @@ const JoinUs = () => {
   // controls wether view is shown
   const [isVisible, setIsVisible] = useState(true);
 
+
   function AnimationEnds() {
     setIsVisible(true);
   }
@@ -36,34 +37,91 @@ const JoinUs = () => {
       </Head>
       <div className="overflow-x-hidden">
         {/* <Slider trigger={AnimationEnds} /> */}
-
         {isVisible ? (
           <>
-            <Nav />
-            {/* remember the padding 20 */}
-            <motion.div className="min-h-screen bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
-              <div className="flex justify-center items-center h-full w-full bg-red-800">
-                <div>
-                  <Image src="/artsyBG.jpg" alt="" width="1600" height="900" priority />
+            <div className="hidden md:block">
+              <Nav />
+
+              <div className="min-h-screen bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
+                <div className="flex justify-center items-center h-full w-full bg-red-800">
+                  <div>
+                    <Image
+                      src="/artsyBG.jpg"
+                      alt=""
+                      width="1600"
+                      height="900"
+                      priority
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col justify-center items-center">
+                  <h1 className="uppercase text-center text-7xl lg:text-8xl xl:text-9xl  py-16 font-bold">
+                    <div>Common</div>
+                    <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
+                      Join
+                    </div>
+                    <div className="relative transform -translate-y-4 lg:-translate-y-8 xl:-translate-y-16">
+                      us
+                    </div>
+                  </h1>
+                  <h3 className="uppercase font-bold">You know</h3>
+                  <p className="max-w-xs text-center">
+                    It isnt that difficult, just click the button below and send
+                    us yout art.
+                  </p>
+                  <div className="relative transform translate-y-16 bg-red-800 px-8 py-2 rounded-md animate-pulse hover:scale-125 active:scale-75 hover:animate-none ">
+                    <p>HERE</p>
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-col justify-center items-center">
-                <h1 className="uppercase text-center text-9xl py-16 font-bold">
-                  <div>Common</div>
-                  <div className="relative transform -translate-y-8">Join</div>
-                  <div className="relative transform -translate-y-16">us</div>
-                </h1>
-                <h3 className="uppercase">You know</h3>
-                <p className="max-w-xs text-center">
-                  It isnt that difficult, just click the button below and send
-                  us yout art.
-                </p>
-                <div className="relative transform translate-y-16 bg-red-800 px-8 py-2 rounded-md animate-pulse hover:scale-125 active:scale-75 hover:animate-none ">
-                  <p>HERE</p>
-                  {/*  href="https://wetransfer.com/" */}
+            </div>
+
+            <div className="block md:hidden">
+              <Nav />
+              {/* remember the padding 20 */}
+              <div className="min-h-screen bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
+                <div className="min-h-screen flex flex-col justify-center items-center">
+                  <h1 className="text-7xl uppercase text-center md:text-9xl py-8 md:py-16 font-bold">
+                    <div>Common</div>
+                    <div className="relative transform -translate-y-4 md:-translate-y-8">
+                      Join
+                    </div>
+                    <div className="relative transform -translate-y-8  md:-translate-y-16">
+                      us
+                    </div>
+                  </h1>
+                  <h3 className="uppercase font-bold">You know</h3>
+                  <p className="max-w-xs text-center text-sm font-light">
+                    It isnt that difficult, just click the button below and send
+                    us yout art.
+                  </p>
+                  <div className="text-sm  transform translate-y-4 md:translate-y-16 bg-red-800 px-4 py-2 md:px-8 md:py-2 rounded-md animate-pulse hover:scale-125 active:scale-75 hover:animate-none ">
+                    <p>HERE</p>
+                    {/*  href="https://wetransfer.com/" */}
+                  </div>
+                  <div className="absolute bottom-4 animate-bounce">
+                    <Image
+                      src="/scroll.png"
+                      alt=""
+                      width="30"
+                      height="30"
+                      priority
+                    />
+                  </div>
+                </div>
+                <div className="flex justify-center items-center min-h-screen md:h-full w-full bg-red-800">
+                  <div>
+                    <Image
+                      src="/artsyBG.jpg"
+                      alt=""
+                      width="1600"
+                      height="900"
+                      priority
+                    />
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </>
         ) : (
           <>

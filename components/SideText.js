@@ -22,7 +22,7 @@ const SideText = ({ sideText }) => {
       variants={parent}
       initial="initial"
       animate="animate"
-      className="text-xs text-white ml-8 max-w-small-box"
+      className="text-xxs md:text-xs text-white ml-8 max-w-small-box"
     >
       {[...sideText].map((letter, key) => (
         <motion.span variants={letterUp} key={key}>

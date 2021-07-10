@@ -50,26 +50,35 @@ const Home = ({ homeInfo }) => {
       </Head>
       <Anim intro={intro} className="" />
 
-      <motion.div className="font-body text-9xl min-h-screen bg-black  flex flex-col items-center justify-center uppercase  relative overflow-hidden ">
-        <Link href="/">
-          <div className="absolute h-24 w-24 top-12 left-12 cursor-pointer">
-            <a>
-              <Image src="/showcase.webp" alt="" layout='fill' objectFit='contain' />
-            </a>
-          </div>
-        </Link>
-        <div className="flex justify-center items-center m-4 ">
+      <motion.div className="font-body text-7xl sm:text-9xl min-h-screen bg-black  flex flex-col items-center  justify-center uppercase  relative overflow-hidden ">
+        <div className="">
           <Link href="/">
-            <a>
-              <HoverItems
-                text={"Home"}
-                position={"text-white hover:text-red-300 cursor-pointer"}
-              />
-            </a>
+            {/* h-12 w-12 top-6 left-6 */}
+            <div className="absolute h-20 w-20 top-4 left-4 sm:h-24 sm:w-24 sm:top-12 sm:left-12  cursor-pointer">
+              <a>
+                <Image
+                  src="/showcase.webp"
+                  alt=""
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </a>
+            </div>
           </Link>
-          <SideText sideText={JSON.stringify(home)} />
-        </div>
-        {/* <Image
+          <div className="flex justify-center items-center m-4 ">
+            <Link href="/">
+              <a>
+                <HoverItems
+                  text={"Home"}
+                  position={"text-white hover:text-red-300 cursor-pointer"}
+                />
+              </a>
+            </Link>
+            <div className="hidden md:block">
+              <SideText sideText={JSON.stringify(home)} />
+            </div>
+          </div>
+          {/* <Image
           className="absolute animate-spin-slow right-4 bottom-4 rounded-full"
           src="/Product_0.svg"
           alt=""
@@ -77,40 +86,47 @@ const Home = ({ homeInfo }) => {
           height="160"
 
         /> */}
-        <div className="flex justify-center items-center m-4">
-          <SideText sideText={JSON.stringify(artists)} />
-          <Link href="/artists">
-            <a>
-              <HoverItems
-                text={"Artists"}
-                position={"text-white hover:text-yellow-300 cursor-pointer"}
-              />
-            </a>
-          </Link>
+          <div className="flex justify-center items-center m-4">
+            <div className="hidden md:block">
+              <SideText sideText={JSON.stringify(artists)} />
+            </div>
+            <Link href="/artists">
+              <a>
+                <HoverItems
+                  text={"Artists"}
+                  position={"text-white hover:text-yellow-300 cursor-pointer"}
+                />
+              </a>
+            </Link>
+          </div>
+          <div className="flex justify-center items-center m-4">
+            <Link href="/joinUs">
+              <a>
+                <HoverItems
+                  text={"Join Us"}
+                  position={"text-white hover:text-green-300 cursor-pointer"}
+                />
+              </a>
+            </Link>
+            <div className="hidden md:block">
+              <SideText sideText={JSON.stringify(joinus)} />
+            </div>
+          </div>
+          <div className="flex justify-center items-center m-4">
+            <div className="hidden md:block">
+              <SideText sideText={JSON.stringify(about)} />
+            </div>
+            <Link href="/aboutDemo">
+              <a>
+                <HoverItems
+                  text={"About"}
+                  position={"text-white hover:text-blue-300 cursor-pointer"}
+                />
+              </a>
+            </Link>
+          </div>
+          <motion.div className="absolute bottom-0 left-0"></motion.div>
         </div>
-        <div className="flex justify-center items-center m-4">
-          <Link href="/joinUs">
-            <a>
-              <HoverItems
-                text={"Join Us"}
-                position={"text-white hover:text-green-300 cursor-pointer"}
-              />
-            </a>
-          </Link>
-          <SideText sideText={JSON.stringify(joinus)} />
-        </div>
-        <div className="flex justify-center items-center m-4">
-          <SideText sideText={JSON.stringify(artists)} />
-          <Link href="/aboutDemo">
-            <a>
-              <HoverItems
-                text={"About"}
-                position={"text-white hover:text-blue-300 cursor-pointer"}
-              />
-            </a>
-          </Link>
-        </div>
-        <motion.div className="absolute bottom-0 left-0"></motion.div>
       </motion.div>
     </div>
   );
