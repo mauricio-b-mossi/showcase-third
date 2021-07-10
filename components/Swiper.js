@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import Image from "next/image";
+
 
 // Import Swiper styles
 import "swiper/swiper.min.css";
@@ -32,31 +34,31 @@ export default function App() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src="/BWBG.jpg" />
+          <Image src="/BWBG.jpg" alt="Art Image" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/BWBG.jpg" />
+          <Image src="/BWBG.jpg" alt="Art Image" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/BWBG.jpg" />
+          <Image src="/BWBG.jpg" alt="Art Image" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/BWBG.jpg" />
+          <Image src="/BWBG.jpg" alt="Art Image" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/BWBG.jpg" />
+          <Image src="/BWBG.jpg" alt="Art Image" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/BWBG.jpg" />
+          <Image src="/BWBG.jpg" alt="Art Image" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/BWBG.jpg" />
+          <Image src="/BWBG.jpg" alt="Art Image" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/BWBG.jpg" />
+          <Image src="/BWBG.jpg" alt="Art Image" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/BWBG.jpg" />
+          <Image src="/BWBG.jpg" alt="Art Image" />
         </SwiperSlide>
       </Swiper>
     </>

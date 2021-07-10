@@ -7,7 +7,8 @@ const Slider = ({ trigger }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      setisSwitching(false), trigger();
+      setisSwitching(false);
+      // , trigger()
     }, 2000);
   }, []);
 
