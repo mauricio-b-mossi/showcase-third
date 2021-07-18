@@ -3,6 +3,8 @@ import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from 'next/image'
 
+// TODO: Add images based on each category only the main Img from sanity
+
 
 // Import Swiper styles
 import "swiper/swiper.min.css";
