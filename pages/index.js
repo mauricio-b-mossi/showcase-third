@@ -127,7 +127,7 @@ const Home = ({ homeInfo }) => {
   );
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getInitialProps = async ({ params }) => {
   const query = `*[_type == "home"]`;
 
   const homeInfo = await sanityClient.fetch(query);
