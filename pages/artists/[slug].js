@@ -4,7 +4,11 @@ import { sanityClient } from "../../sanity";
 import SwiperWOLinks from "../../components/SwiperWOLinks";
 
 export const getStaticPaths = async () => {
-  const query = `*[_type == "posts"]`;
+  const query = `*[_type == "posts"]{
+    slug{
+      current
+    }
+  }`;
 
   const postInfo = await sanityClient.fetch(query);
 
@@ -15,24 +19,22 @@ export const getStaticPaths = async () => {
   })
 
   return {
-    paths: paths,
+    paths,
     fallback: false
   };
 
 }
 
 const Slug = (props) => {
-
-  const { mainImage, images, title, description } = props;
+  // const { mainImage, images, title, description } = props;
 
   // console.log("====================================");
-  // console.log(mainImage);
+  // console.log(props.slugInfo.images);
   // console.log("====================================");
   // console.log(images);
   // console.log("====================================");
 
-
-  const list = [mainImage, ...images]
+  const list = [props.slugInfo.mainImage, ...props.slugInfo.images]
 
     console.log(list);
 
@@ -43,10 +45,10 @@ const Slug = (props) => {
       <div className="grid md:grid-cols-2 min-h-screen justify-center items-center ">
         <div className="flex flex-col justify-center items-center">
           <h1 className="uppercase text-center text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl  py-4 md:py-16 font-bold">
-            <div>{title}</div>
+            <div>{props.slugInfo.title}</div>
           </h1>
           <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xl md:text-2xl">
-            <p>{ description }</p>
+            <p>{props.slugInfo.description}</p>
           </div>
         </div>
         {/* <div className="hidden">
@@ -60,11 +62,51 @@ const Slug = (props) => {
   );
 };
 
-Slug.getStaticProps = async (context) => {
+export const getStaticProps = async (context) => {
   // It's important to default the slug so that it doesn't return "undefined"
-  const { slug = "" } = context.query;
-  return await sanityClient.fetch(
-    `
+  const slug = context.params.slug;
+  // return await sanityClient.fetch(
+  //   `
+  //   *[slug.current == $slug][0]{
+  //     title,
+  //     description,
+  //         images[]{
+  //    asset->{
+  //                       _id,
+  //                       url
+  //                   }
+  // },
+  //         mainImage{
+  //                   asset->{
+  //                       _id,
+  //                       url
+  //                   }
+  //               }
+  //   }
+  // `,
+  //   { slug }
+  // );
+
+  //  const query = `
+  //   *[slug.current == $slug][0]{
+  //     title,
+  //     description,
+  //         images[]{
+  //    asset->{
+  //                       _id,
+  //                       url
+  //                   }
+  // },
+  //         mainImage{
+  //                   asset->{
+  //                       _id,
+  //                       url
+  //                   }
+  //               }
+  //   }
+  // `;
+
+   const slugInfo = await sanityClient.fetch(  `
     *[slug.current == $slug][0]{
       title,
       description,
@@ -82,8 +124,13 @@ Slug.getStaticProps = async (context) => {
                 }
     }
   `,
-    { slug }
-  );
+    { slug });
+
+   return {
+     props: {
+       slugInfo,
+     },
+   };
 };
 
 export default Slug;
