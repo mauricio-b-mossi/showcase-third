@@ -39,8 +39,8 @@ export default function App({list}) {
         className="mySwiper"
       >
         {list &&
-          list.map((img) => (
-            <SwiperSlide>
+          list.map((img, index) => (
+            <SwiperSlide key={index}>
               <Link href={"/artists/" + img.slug.current}>
                 <a>
                   <Image

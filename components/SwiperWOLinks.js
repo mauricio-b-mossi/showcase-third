@@ -37,8 +37,8 @@ export default function App({ list }) {
         className="mySwiper"
       >
         {list &&
-          list.map((img) => (
-            <SwiperSlide>
+          list.map((img, index) => (
+            <SwiperSlide key={index}>
               <Image
                 src={img.asset.url}
                 alt="Art Image"
