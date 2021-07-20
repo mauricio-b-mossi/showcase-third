@@ -2,16 +2,15 @@ module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-     
     extend: {
       fontFamily: {
         body: ["Roboto"],
       },
       fontSize: {
         xxl: "200px",
-        xxs: "0.25rem"
+        xxs: "0.25rem",
       },
-    
+
       animation: {
         "spin-slow": "spin 5s linear infinite",
       },
@@ -24,12 +23,12 @@ module.exports = {
       },
       height: {
         "img-h": "470px",
-        "img-h-sm": "235px"
+        "img-h-sm": "235px",
       },
       width: {
         "img-w": "370px",
-        "img-w-sm": "185px"
-      }
+        "img-w-sm": "185px",
+      },
     },
   },
   variants: {
@@ -38,5 +37,8 @@ module.exports = {
       animation: ["hover"],
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
 };

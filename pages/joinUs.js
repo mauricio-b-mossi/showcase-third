@@ -38,15 +38,24 @@ const JoinUs = () => {
 
               <div className="min-h-screen bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
                 <div className="flex justify-center items-center h-full w-full bg-red-800">
-                  <div>
-                    <Image
+                  {/* <div className="asp aspect-w-16 aspect-h-9"> */}
+                  {/* <Image
                       src="/artsyBG.jpg"
                       alt=""
                       width="1600"
                       height="900"
                       priority
-                    />
-                  </div>
+                    /> */}
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/WPdJaBFquNc"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                  {/* </div> */}
                 </div>
                 <div className="flex flex-col justify-center items-center min-h-screen ">
                   <h1 className="uppercase text-center text-7xl lg:text-8xl 2xl:text-9xl font-bold absolute top-1/4 ">
@@ -112,15 +121,17 @@ const JoinUs = () => {
                     />
                   </div>
                 </div>
-                <div className="flex justify-center items-center min-h-screen md:h-full w-full bg-red-800">
+                <div className="flex justify-center items-center min-h-screen md:h-full  w-screen bg-red-800">
                   <div>
-                    <Image
-                      src="/artsyBG.jpg"
-                      alt=""
-                      width="1600"
-                      height="900"
-                      priority
-                    />
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/WPdJaBFquNc"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
                   </div>
                 </div>
               </div>

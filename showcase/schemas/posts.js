@@ -7,19 +7,33 @@ export default {
       name: "title",
       title: "Title",
       type: "string",
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "text",
+    },
+    {
+      name: "category",
+      title: "Category",
+      type: "string",
+      options: {
+        list: [
+          { title: "Artes Musicales", value: "artesMusicales" },
+          { title: "Artes Visuales", value: "artesVisuales" },
+          { title: "Artes Mixtas", value: "artesMixtas" },
+        ],
+        layout: "radio",
       },
-         {
-          name: 'category',
-          title: "Category",
-          type: "string",
-          options: {
-              list: [
-                  {title: "Artes Musicales", value: "artesMusicales"},
-                  {title: "Artes Visuales", value: "artesVisuales"},
-                  {title: "Artes Mixtas", value: "artesMixtas"},
-              ],
-              layout: "radio"
-          }
+    },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
     },
     {
       name: "mainImage",
@@ -34,7 +48,6 @@ export default {
       title: "Images",
       type: "array",
       of: [{ type: "image" }],
-      },
-   
+    },
   ],
 };

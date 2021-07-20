@@ -34,12 +34,7 @@ const Home = ({ homeInfo }) => {
 
   const { title, home, artists, joinus, about } = homeInfo[0];
 
-  // console.log(home);
-  // console.log(title);
-  // console.log(home);
-  // console.log(artists);
-  // console.log(joinus);
-  // console.log(about);
+
 
   return (
     <div>

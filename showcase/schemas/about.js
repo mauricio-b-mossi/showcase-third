@@ -9,6 +9,12 @@ export default {
       type: "string",
     },
     {
+      name: "video",
+      title: "Video Link",
+      description: "Meter el link en version : https://www.youtube.com/embed/(codigo)",
+      type: "string",
+    },
+    {
       name: "mission",
       title: "Our Mission",
       description: "Info sobre cual es la mission",
@@ -18,6 +24,12 @@ export default {
       name: "vision",
       title: "Our Vision",
       description: "Info sobre cual es la vision",
+      type: "text",
+    },
+    {
+      name: "reasons",
+      title: "Reasons",
+      description: "Info sobre las razones",
       type: "text",
     },
   ],

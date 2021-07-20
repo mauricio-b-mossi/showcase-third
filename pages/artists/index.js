@@ -6,13 +6,25 @@ import Slider from "../../components/Slider";
 import { motion } from "framer-motion";
 import ImageGallery from "../../components/ImageGallery";
 import Swiper from "../../components/Swiper";
+import { sanityClient } from "../../sanity";
 
-const Index = () => {
+const Index = ({artistsInfo,
+      aMusicalesImgs,
+      aMixtasImgs,
+      aVisualesImgs}) => {
   const [isVisible, setIsVisible] = useState(true);
 
   function AnimationEnds() {
     setIsVisible(true);
   }
+
+
+  const { aMixtas, aMusicales, aVisuales } = artistsInfo[0];
+
+  console.log('====================================');
+  console.log(aMixtasImgs);
+  console.log('====================================');
+
 
   return (
     <div>
@@ -26,6 +38,7 @@ const Index = () => {
 
         {isVisible ? (
           <>
+            {/* TODO: REMEMBER RESPONSIVE SWIPPERS */}
             <Nav />
             {/* El de abajo llegveria de llevar padding instead */}
             <motion.div className="min-h-screen bg-black flex flex-col items-center justify-center text-white font-body">
@@ -35,7 +48,7 @@ const Index = () => {
                   <ImageGallery />
                 </div> */}
                 <div className="hidden md:block">
-                  <Swiper />
+                  <Swiper list={aVisualesImgs} />
                 </div>
                 {/* Title and text */}
                 <s className="flex flex-col justify-center items-center">
@@ -46,40 +59,32 @@ const Index = () => {
                     </div>
                   </h1>
                   <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xs md:text-base">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Possimus minus assumenda non nesciunt enim? Praesentium
-                      ipsum fuga harum quaerat possimus!
-                    </p>
+                    <p>{aVisuales}</p>
                   </div>
                 </s>
                 <div className="block md:hidden pb-16">
-                  <Swiper />
+                  <Swiper list={aVisualesImgs} />
                 </div>
                 <s className="flex flex-col justify-center items-center">
                   <h1 className="uppercase text-center text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl  py-4 md:py-16 font-bold">
                     <div>Artes</div>
                     <div className="relative transform -translate-y-2 lg:-translate-y-4 2xl:-translate-y-8">
-                      Visuales
+                      Mixtas
                     </div>
                   </h1>
                   <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xs md:text-base">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Possimus minus assumenda non nesciunt enim? Praesentium
-                      ipsum fuga harum quaerat possimus!
-                    </p>
+                    <p>{aMixtas}</p>
                   </div>
                 </s>
                 {/* <div className="hidden">
                   <ImageGallery />
                 </div> */}
                 <div className="pb-16 md:pb-0">
-                  <Swiper />
+                  <Swiper list={aMixtasImgs} />
                 </div>
                 {/* Title and text */}
                 <div className="hidden md:block">
-                  <Swiper />
+                  <Swiper list={aMusicalesImgs} />
                 </div>
                 {/* <div className="hidden">
                   <ImageGallery />
@@ -89,19 +94,15 @@ const Index = () => {
                   <h1 className="uppercase text-center text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl py-4 md:py-16 font-bold">
                     <div>Artes</div>
                     <div className="relative transform -translate-y-2 lg:-translate-y-4 2xl:-translate-y-8">
-                      Visuales
+                      Musicales
                     </div>
                   </h1>
                   <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xs md:text-base">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Possimus minus assumenda non nesciunt enim? Praesentium
-                      ipsum fuga harum quaerat possimus!
-                    </p>
+                    <p>{aMusicales}</p>
                   </div>
                 </s>
                 <div className="block md:hidden pb-16">
-                  <Swiper />
+                  <Swiper list={aMusicalesImgs} />
                 </div>
               </div>
             </motion.div>
@@ -114,6 +115,51 @@ const Index = () => {
       </div>
     </div>
   );
+};
+
+export const getStaticProps = async ({ params }) => {
+  const query = `*[_type == "artists"]`;
+  const aMusicalesQuery = `*[_type == "posts" && category == "artesMusicales"]{
+    slug,
+    mainImage{
+                    asset->{
+                        _id,
+                        url
+                    }
+                }
+}`;
+  const aMixtasQuery = `*[_type == "posts" && category == "artesMixtas"]{
+    slug,
+    mainImage{
+                    asset->{
+                        _id,
+                        url
+                    }
+                }
+}`;
+  const aVisualesQuery = `*[_type == "posts" && category == "artesVisuales"]{
+    slug,
+    mainImage{
+                    asset->{
+                        _id,
+                        url
+                    }
+                }
+}`;
+
+  const artistsInfo = await sanityClient.fetch(query);
+  const aMusicalesImgs = await sanityClient.fetch(aMusicalesQuery);
+  const aMixtasImgs = await sanityClient.fetch(aMixtasQuery);
+  const aVisualesImgs = await sanityClient.fetch(aVisualesQuery);
+
+  return {
+    props: {
+      artistsInfo,
+      aMusicalesImgs,
+      aMixtasImgs,
+      aVisualesImgs
+    },
+  };
 };
 
 export default Index;

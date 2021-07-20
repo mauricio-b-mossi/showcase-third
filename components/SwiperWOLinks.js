@@ -1,13 +1,11 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from "next/image";
 
 // FIXME: to be able to rehuse I should pass a array param containing the Images
 // Example: for the home just send the array of main images where list value = X
 // TODO: Add images based on each category only the main Img from sanity
-
 
 // Import Swiper styles
 import "swiper/swiper.min.css";
@@ -20,7 +18,7 @@ import SwiperCore, { EffectCoverflow, Pagination } from "swiper/core";
 // install Swiper modules
 SwiperCore.use([EffectCoverflow, Pagination]);
 
-export default function App({list}) {
+export default function App({ list }) {
   return (
     <>
       <Swiper
@@ -41,16 +39,12 @@ export default function App({list}) {
         {list &&
           list.map((img) => (
             <SwiperSlide>
-              <Link href={"/artists/" + img.slug.current}>
-                <a>
-                  <Image
-                    src={img.mainImage.asset.url}
-                    alt="Art Image"
-                    width="900"
-                    height="900"
-                  />
-                </a>
-              </Link>
+              <Image
+                src={img.asset.url}
+                alt="Art Image"
+                width="900"
+                height="900"
+              />
             </SwiperSlide>
           ))}
       </Swiper>
