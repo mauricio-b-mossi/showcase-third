@@ -12,7 +12,7 @@ const AboutDemo = ({ about }) => {
 
   const { title, mission, vision, reasons, video, images } = about;
 
-  console.log(title);
+  // console.log(title);
 
   const [isVisible, setIsVisible] = useState(true);
 
@@ -20,9 +20,9 @@ const AboutDemo = ({ about }) => {
     setIsVisible(true);
   }
 
-  console.log('====================================');
-  console.log(images);
-  console.log('====================================');
+  // console.log('====================================');
+  // console.log(images);
+  // console.log('====================================');
 
   // const list = [...images];
 

@@ -21,9 +21,9 @@ const Index = ({artistsInfo,
 
   const { aMixtas, aMusicales, aVisuales } = artistsInfo[0];
 
-  console.log('====================================');
-  console.log(aMixtasImgs);
-  console.log('====================================');
+  // console.log('====================================');
+  // console.log(aMixtasImgs);
+  // console.log('====================================');
 
 
   return (

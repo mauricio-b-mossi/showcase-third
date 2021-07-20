@@ -36,9 +36,9 @@ const Slug = (props) => {
 
   const list = [props.slugInfo.mainImage, ...props.slugInfo.images]
 
-    console.log(list);
+    // console.log(list);
 
-    list.map((img)=>console.log(img.asset))
+    // list.map((img)=>console.log(img.asset))
 
   return (
     <div className="max-h-screen md:min-h-screen bg-black flex flex-col items-center justify-center text-white font-body py-20 sm:p-10 lg:p-20">
