@@ -3,17 +3,34 @@ import { useRouter } from "next/router";
 import { sanityClient } from "../../sanity";
 import SwiperWOLinks from "../../components/SwiperWOLinks";
 
+export const getStaticPaths = async () => {
+  const query = `*[_type == "posts"]`;
+
+  const postInfo = await sanityClient.fetch(query);
+
+  const paths = postInfo.map((post) => {
+    return {
+      params: {slug: post.slug.current}
+    }
+  })
+
+  return {
+    paths: paths,
+    fallback: false
+  };
+
+}
+
 const Slug = (props) => {
 
   const { mainImage, images, title, description } = props;
 
-  console.log("====================================");
-  console.log(mainImage);
-  console.log("====================================");
-  console.log(images);
-  console.log("====================================");
-  //   console.log(title);
-  //   console.log("====================================");
+  // console.log("====================================");
+  // console.log(mainImage);
+  // console.log("====================================");
+  // console.log(images);
+  // console.log("====================================");
+
 
   const list = [mainImage, ...images]
 
@@ -43,7 +60,7 @@ const Slug = (props) => {
   );
 };
 
-Slug.getInitialProps = async (context) => {
+Slug.getStaticProps = async (context) => {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.query;
   return await sanityClient.fetch(
