@@ -10,13 +10,6 @@ const JoinUs = ({descriptionInfo}) => {
   // controls wether view is shown
   const [isVisible, setIsVisible] = useState(true);
 
-  // useEffect(() => {
-  //   console.log(window.innerWidth);
-  // }, []);
-
-  // 1366
-
-  // 1920
 
   const { title, description, descriptionTitle, video } = descriptionInfo
   

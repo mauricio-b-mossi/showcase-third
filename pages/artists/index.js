@@ -21,10 +21,6 @@ const Index = ({artistsInfo,
 
   const { aMixtas, aMusicales, aVisuales } = artistsInfo[0];
 
-  // console.log('====================================');
-  // console.log(aMixtasImgs);
-  // console.log('====================================');
-
 
   return (
     <div>
@@ -47,41 +43,6 @@ const Index = ({artistsInfo,
                 {/* <div className="hidden">
                   <ImageGallery />
                 </div> */}
-                <div className="hidden md:block">
-                  <Swiper list={aVisualesImgs} />
-                </div>
-                {/* Title and text */}
-                <s className="flex flex-col justify-center items-center">
-                  <h1 className="uppercase text-center text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl py-4 md:py-16 font-bold">
-                    <div>Artes</div>
-                    <div className="relative transform -translate-y-2 lg:-translate-y-4 2xl:-translate-y-8">
-                      Visuales
-                    </div>
-                  </h1>
-                  <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xs md:text-base">
-                    <p>{aVisuales}</p>
-                  </div>
-                </s>
-                <div className="block md:hidden pb-16">
-                  <Swiper list={aVisualesImgs} />
-                </div>
-                <s className="flex flex-col justify-center items-center">
-                  <h1 className="uppercase text-center text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl  py-4 md:py-16 font-bold">
-                    <div>Artes</div>
-                    <div className="relative transform -translate-y-2 lg:-translate-y-4 2xl:-translate-y-8">
-                      Mixtas
-                    </div>
-                  </h1>
-                  <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xs md:text-base">
-                    <p>{aMixtas}</p>
-                  </div>
-                </s>
-                {/* <div className="hidden">
-                  <ImageGallery />
-                </div> */}
-                <div className="pb-16 md:pb-0">
-                  <Swiper list={aMixtasImgs} />
-                </div>
                 {/* Title and text */}
                 <div className="hidden md:block">
                   <Swiper list={aMusicalesImgs} />
@@ -103,6 +64,42 @@ const Index = ({artistsInfo,
                 </s>
                 <div className="block md:hidden pb-16">
                   <Swiper list={aMusicalesImgs} />
+                </div>
+
+                <s className="flex flex-col justify-center items-center">
+                  <h1 className="uppercase text-center text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl  py-4 md:py-16 font-bold">
+                    <div>Artes</div>
+                    <div className="relative transform -translate-y-2 lg:-translate-y-4 2xl:-translate-y-8">
+                      Visuales
+                    </div>
+                  </h1>
+                  <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xs md:text-base">
+                    <p>{aVisuales}</p>
+                  </div>
+                </s>
+                {/* <div className="hidden">
+                  <ImageGallery />
+                </div> */}
+                <div className="pb-16 md:pb-0">
+                  <Swiper list={aVisualesImgs} />
+                </div>
+                <div className="hidden md:block">
+                  <Swiper list={aMixtasImgs} />
+                </div>
+                {/* Title and text */}
+                <s className="flex flex-col justify-center items-center">
+                  <h1 className="uppercase text-center text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl py-4 md:py-16 font-bold">
+                    <div>Artes</div>
+                    <div className="relative transform -translate-y-2 lg:-translate-y-4 2xl:-translate-y-8">
+                      Mixtas
+                    </div>
+                  </h1>
+                  <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xs md:text-base">
+                    <p>{aMixtas}</p>
+                  </div>
+                </s>
+                <div className="block md:hidden pb-16">
+                  <Swiper list={aMixtasImgs} />
                 </div>
               </div>
             </motion.div>
