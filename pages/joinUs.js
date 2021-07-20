@@ -134,12 +134,15 @@ const JoinUs = ({descriptionInfo}) => {
                 </div>
                 <div className="flex justify-center items-center min-h-screen md:h-full  w-screen bg-red-800">
                   <div>
-                    {/* <div className="container">
-                      <iframe
-                        className="responsive-iframe"
-                        src={video}
-                      ></iframe>
-                    </div> */}
+                    <iframe
+                      width="560"
+                      height="315"
+                      src={video}
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
                   </div>
                 </div>
               </div>
