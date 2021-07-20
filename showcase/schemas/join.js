@@ -1,0 +1,31 @@
+export default {
+  name: "joinUs",
+  title: "Join Us",
+  type: "document",
+  fields: [
+    {
+      name: "title",
+      description:
+        "Max 3 letters en el title",
+      title: "Title",
+      type: "string",
+    },
+    {
+      name: "descriptionTitle",
+      title: "Description Title",
+      type: "string",
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "text",
+    },
+    {
+      name: "video",
+      title: "Video Link",
+      description:
+        "Meter el link en version : https://www.youtube.com/embed/(codigo)",
+      type: "string",
+    },
+  ],
+};

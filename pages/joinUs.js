@@ -4,8 +4,9 @@ import Head from "next/head";
 import Image from "next/image";
 import Slider from "../components/Slider";
 import { motion } from "framer-motion";
+import { sanityClient } from "../sanity";
 
-const JoinUs = () => {
+const JoinUs = ({descriptionInfo}) => {
   // controls wether view is shown
   const [isVisible, setIsVisible] = useState(true);
 
@@ -16,6 +17,10 @@ const JoinUs = () => {
   // 1366
 
   // 1920
+
+  const { title, description, descriptionTitle, video } = descriptionInfo
+  
+  const splitTitle = title.split(" ")
 
   function AnimationEnds() {
     setIsVisible(true);
@@ -49,7 +54,7 @@ const JoinUs = () => {
                   <iframe
                     width="560"
                     height="315"
-                    src="https://www.youtube.com/embed/WPdJaBFquNc"
+                    src={video}
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -59,21 +64,24 @@ const JoinUs = () => {
                 </div>
                 <div className="flex flex-col justify-center items-center min-h-screen ">
                   <h1 className="uppercase text-center text-7xl lg:text-8xl 2xl:text-9xl font-bold absolute top-1/4 ">
-                    <div>Common</div>
+                    <div>{splitTitle ? splitTitle[0] : "common"}</div>
                     <div className="relative transform -translate-y-2 lg:-translate-y-4 2xl:-translate-y-8">
-                      Join
+                      {splitTitle ? splitTitle[1] : "join"}
                     </div>
                     <div className="relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16">
-                      us
+                      {splitTitle ? splitTitle[2] : "us"}
                     </div>
                   </h1>
                   <div className="absolute bottom-12">
                     <div className="relative">
                       <div className="flex flex-col justify-center items-center py-8">
-                        <h3 className="uppercase font-bold">You know</h3>
+                        <h3 className="uppercase font-bold">
+                          {descriptionTitle ? descriptionTitle : "You Know"}
+                        </h3>
                         <p className="max-w-xs text-center">
-                          It isnt that difficult, just click the button below
-                          and send us yout art.
+                          {description
+                            ? description
+                            : " It isnt that difficult, just click the button below and send us yout art."}
                         </p>
                       </div>
                       <div className="flex justify-center items-center">
@@ -94,18 +102,21 @@ const JoinUs = () => {
               <div className="min-h-screen bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
                 <div className="min-h-screen flex flex-col justify-center items-center">
                   <h1 className="text-7xl uppercase text-center md:text-9xl py-8 md:py-16 font-bold">
-                    <div>Common</div>
+                    <div>{splitTitle ? splitTitle[0] : "common"}</div>
                     <div className="relative transform -translate-y-4 md:-translate-y-8">
-                      Join
+                      {splitTitle ? splitTitle[1] : "join"}
                     </div>
                     <div className="relative transform -translate-y-8  md:-translate-y-16">
-                      us
+                      {splitTitle ? splitTitle[2] : "us"}
                     </div>
                   </h1>
-                  <h3 className="uppercase font-bold">You know</h3>
+                  <h3 className="uppercase font-bold">
+                    {descriptionTitle ? descriptionTitle : "You Know"}
+                  </h3>
                   <p className="max-w-xs text-center text-sm font-light">
-                    It isnt that difficult, just click the button below and send
-                    us yout art.
+                    {description
+                      ? description
+                      : " It isnt that difficult, just click the button below and send us yout art."}
                   </p>
                   <div className="text-sm  transform translate-y-4 md:translate-y-16 bg-red-800 px-4 py-2 md:px-8 md:py-2 rounded-md animate-pulse hover:scale-125 active:scale-75 hover:animate-none ">
                     <p>HERE</p>
@@ -123,15 +134,12 @@ const JoinUs = () => {
                 </div>
                 <div className="flex justify-center items-center min-h-screen md:h-full  w-screen bg-red-800">
                   <div>
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/WPdJaBFquNc"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
+                    {/* <div className="container">
+                      <iframe
+                        className="responsive-iframe"
+                        src={video}
+                      ></iframe>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -145,6 +153,23 @@ const JoinUs = () => {
       </div>
     </div>
   );
+};
+
+export const getStaticProps = async ({ params }) => {
+  const query = `*[_type == "joinUs"][0]{
+    title,
+    descriptionTitle,
+    description,
+    video,
+  }`;
+
+  const descriptionInfo = await sanityClient.fetch(query);
+
+  return {
+    props: {
+      descriptionInfo,
+    },
+  };
 };
 
 export default JoinUs;

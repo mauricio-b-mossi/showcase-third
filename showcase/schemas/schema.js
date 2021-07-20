@@ -10,6 +10,7 @@ import blockContent from './blockContent'
 import about from './about'
 import artists from './artists'
 import home from './home'
+import join from './join'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -22,6 +23,7 @@ export default createSchema({
     posts,
     home,
     artists,
+    join,
     about,
     blockContent,
   ]),

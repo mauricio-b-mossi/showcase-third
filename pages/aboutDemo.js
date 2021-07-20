@@ -6,9 +6,11 @@ import Slider from "../components/Slider";
 import { motion } from "framer-motion";
 import { sanityClient } from "../sanity";
 import DraggableImage from "../components/DraggableImage";
+import SwipeAbout from "../components/SwipeAbout";
 
 const AboutDemo = ({ about }) => {
-  const { title, mission, vision, reasons, video } = about[0];
+
+  const { title, mission, vision, reasons, video, images } = about;
 
   console.log(title);
 
@@ -17,6 +19,12 @@ const AboutDemo = ({ about }) => {
   function AnimationEnds() {
     setIsVisible(true);
   }
+
+  console.log('====================================');
+  console.log(images);
+  console.log('====================================');
+
+  // const list = [...images];
 
   return (
     <div>
@@ -57,7 +65,7 @@ const AboutDemo = ({ about }) => {
                 <div className="text-sm md:text-xl transform m-4 md:m-0 md:rotate-90 border-b-2 border-t-2   border-white">
                   swipe swipe swipe
                 </div>
-                <div className="h-96 w-60 block">
+                {/* <div className="h-96 w-60 block">
                   <DraggableImage
                     style={"h-96 w-60 object-cover absolute z-10"}
                     src={"/BWBG.jpg"}
@@ -70,7 +78,8 @@ const AboutDemo = ({ about }) => {
                     style={"h-96 w-60 object-cover absolute z-10"}
                     src={"/BWBG.jpg"}
                   />
-                </div>
+                </div> */}
+                <SwipeAbout list={ images }/>
                 <div className="text-sm md:text-xl m-4 md:m-0 transform md:-rotate-90 border-b-2 border-t-2    border-white">
                   swipe swipe swipe
                 </div>
@@ -82,7 +91,7 @@ const AboutDemo = ({ about }) => {
 
               <div className="pb-10 md:p-0">
                 <motion.div className=" bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
-                  <h1 className="pt-20 block md:hidden uppercase text-center text-3xl sm:text-7xl lg:text-8xl xl:text-9xl py-4 md:py-16 font-bold">
+                  <h1 className="pt-20 block md:hidden uppercase text-center text-3xl sm:text-7xl lg:text-8xl xl:text-9xl py-4 md:py-16  font-bold">
                     <div>Our</div>
                     <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
                       Mission
@@ -164,7 +173,21 @@ const AboutDemo = ({ about }) => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const query = `*[_type == "aboutUs"]`;
+  const query = `*[_type == "aboutUs"][0]{
+    title,
+    mission,
+    vision,
+    reasons,
+    video,
+     images[]{
+     asset->{
+                        _id,
+                        url
+                    }
+  },
+
+  }`;
+
 
   const about = await sanityClient.fetch(query);
 

@@ -44,6 +44,7 @@ export default function App({ list }) {
                 alt="Art Image"
                 width="900"
                 height="900"
+                key={img.asset._id}
               />
             </SwiperSlide>
           ))}

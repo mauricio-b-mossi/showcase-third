@@ -11,8 +11,17 @@ export default {
     {
       name: "video",
       title: "Video Link",
-      description: "Meter el link en version : https://www.youtube.com/embed/(codigo)",
+      description:
+        "Meter el link en version : https://www.youtube.com/embed/(codigo)",
       type: "string",
+    },
+    {
+      name: "images",
+      title: "Images",
+      description:
+        "Imagenes en la seccion de about",
+      type: "array",
+      of: [{ type: "image" }],
     },
     {
       name: "mission",
