@@ -43,7 +43,7 @@ const Slug = (props) => {
   );
 };
 
-Slug.getStaticProps = async (context) => {
+Slug.getInitialProps = async (context) => {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.query;
   return await sanityClient.fetch(
