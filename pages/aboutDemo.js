@@ -10,7 +10,7 @@ import SwipeAbout from "../components/SwipeAbout";
 
 const AboutDemo = ({ about }) => {
 
-  const { title, mission, vision, reasons, video, images } = about;
+  const { title, mission, vision, reasons, video, images, mainImage } = about;
 
   // console.log(title);
 
@@ -43,21 +43,31 @@ const AboutDemo = ({ about }) => {
               {/* bg-black-white bg-cover bg-center */}
 
               <div className="relative flex justify-center bg-black items-center w-full h-screen  ">
-                <Image
-                  className="h-full w-full object-cover opacity-80"
-                  src="/BWBG.jpg"
-                  alt=""
-                  layout="fill"
-                  priority={true}
-                />
+                {mainImage ? (
+                  <Image
+                    className="h-full w-full object-cover opacity-80"
+                    src={mainImage.asset.url}
+                    alt=""
+                    layout="fill"
+                    priority={true}
+                  />
+                ) : (
+                  <Image
+                    className="h-full w-full object-cover opacity-80"
+                    src="/BWBG.jpg"
+                    alt=""
+                    layout="fill"
+                    priority={true}
+                  />
+                )}
                 <h1 className="absolute text-7xl sm:text-9xl lg:text-xxl font-bold uppercase">
                   About
                 </h1>
               </div>
 
               <div className="relative flex justify-center bg-black items-center w-full py-20">
-              <div className="container">
-                <iframe className="responsive-iframe" src={video}></iframe>
+                <div className="container">
+                  <iframe className="responsive-iframe" src={video}></iframe>
                 </div>
               </div>
 
@@ -79,7 +89,7 @@ const AboutDemo = ({ about }) => {
                     src={"/BWBG.jpg"}
                   />
                 </div> */}
-                <SwipeAbout list={ images }/>
+                <SwipeAbout list={images} />
                 <div className="text-sm md:text-xl m-4 md:m-0 transform md:-rotate-90 border-b-2 border-t-2    border-white">
                   swipe swipe swipe
                 </div>
@@ -176,6 +186,12 @@ const AboutDemo = ({ about }) => {
 export const getServerSideProps = async ({ params }) => {
   const query = `*[_type == "aboutUs"][0]{
     title,
+    mainImage{
+                    asset->{
+                        _id,
+                        url
+                    }
+                },
     mission,
     vision,
     reasons,

@@ -9,6 +9,14 @@ export default {
       type: "string",
     },
     {
+      name: "mainImage",
+      title: "Main Image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
       name: "video",
       title: "Video Link",
       description:
@@ -18,8 +26,7 @@ export default {
     {
       name: "images",
       title: "Images",
-      description:
-        "Imagenes en la seccion de about",
+      description: "Imagenes en la seccion de about",
       type: "array",
       of: [{ type: "image" }],
     },
