@@ -172,7 +172,8 @@ const AboutDemo = ({ about }) => {
   );
 };
 
-export const getStaticProps = async ({ params }) => {
+// export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async ({ params }) => {
   const query = `*[_type == "aboutUs"][0]{
     title,
     mission,

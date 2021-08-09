@@ -3,27 +3,27 @@ import { useRouter } from "next/router";
 import { sanityClient } from "../../sanity";
 import SwiperWOLinks from "../../components/SwiperWOLinks";
 
-export const getStaticPaths = async () => {
-  const query = `*[_type == "posts"]{
-    slug{
-      current
-    }
-  }`;
+// export const getStaticPaths = async () => {
+//   const query = `*[_type == "posts"]{
+//     slug{
+//       current
+//     }
+//   }`;
 
-  const postInfo = await sanityClient.fetch(query);
+//   const postInfo = await sanityClient.fetch(query);
 
-  const paths = postInfo.map((post) => {
-    return {
-      params: {slug: post.slug.current}
-    }
-  })
+//   const paths = postInfo.map((post) => {
+//     return {
+//       params: {slug: post.slug.current}
+//     }
+//   })
 
-  return {
-    paths,
-    fallback: false
-  };
+//   return {
+//     paths,
+//     fallback: false
+//   };
 
-}
+// }
 
 const Slug = (props) => {
   // const { mainImage, images, title, description } = props;
@@ -62,7 +62,8 @@ const Slug = (props) => {
   );
 };
 
-export const getStaticProps = async (context) => {
+// export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   // It's important to default the slug so that it doesn't return "undefined"
   const slug = context.params.slug;
   // return await sanityClient.fetch(
@@ -106,7 +107,8 @@ export const getStaticProps = async (context) => {
   //   }
   // `;
 
-   const slugInfo = await sanityClient.fetch(  `
+  const slugInfo = await sanityClient.fetch(
+    `
     *[slug.current == $slug][0]{
       title,
       description,
@@ -124,13 +126,14 @@ export const getStaticProps = async (context) => {
                 }
     }
   `,
-    { slug });
+    { slug }
+  );
 
-   return {
-     props: {
-       slugInfo,
-     },
-   };
+  return {
+    props: {
+      slugInfo,
+    },
+  };
 };
 
 export default Slug;
