@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         body: ["Roboto"],
       },
+      zIndex: {
+        '-10': -10
+      },
       fontSize: {
         xxl: "200px",
         xxs: "0.25rem",

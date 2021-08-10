@@ -11,7 +11,7 @@ const JoinUs = ({descriptionInfo}) => {
   const [isVisible, setIsVisible] = useState(true);
 
 
-  const { title, description, descriptionTitle, video } = descriptionInfo
+  const { title, mainImage, description, descriptionTitle, video } = descriptionInfo
   
   const splitTitle = title.split(" ")
 
@@ -31,7 +31,8 @@ const JoinUs = ({descriptionInfo}) => {
         {isVisible ? (
           <>
             {/* TODO: DESKTOP */}
-            <div className="hidden md:block">
+            {/*  md:block */}
+            <div className="hidden">
               <Nav />
 
               <div className="min-h-screen bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
@@ -89,12 +90,32 @@ const JoinUs = ({descriptionInfo}) => {
             </div>
 
             {/* TODO: MOBIL */}
-            <div className="block md:hidden">
+            {/*  md:hidden */}
+            <div className="block">
               <Nav />
+              <div className="absolute min-h-screen min-w-full bg-black">
+                {mainImage.asset.url ? (
+                  <Image
+                    className="h-full w-full object-cover opacity-80"
+                    src={mainImage.asset.url}
+                    alt=""
+                    layout="fill"
+                    priority={true}
+                  />
+                ) : (
+                  <Image
+                    className="h-full w-full object-cover opacity-80"
+                    src="/BWBG.jpg"
+                    alt=""
+                    layout="fill"
+                    priority={true}
+                  />
+                )}
+              </div>
               {/* remember the padding 20 */}
-              <div className="min-h-screen bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
-                <div className="min-h-screen flex flex-col justify-center items-center">
-                  <h1 className="text-7xl uppercase text-center md:text-9xl py-8 md:py-16 font-bold">
+              <div className="max-h-screen bg-black  items-center justify-center text-white font-body">
+                <div className="relative min-h-screen flex flex-col justify-center items-center">
+                  <h1 className="relative text-7xl uppercase text-center md:text-9xl py-8  font-bold">
                     <div>{splitTitle ? splitTitle[0] : "common"}</div>
                     <div className="relative transform -translate-y-4 md:-translate-y-8">
                       {splitTitle ? splitTitle[1] : "join"}
@@ -103,39 +124,63 @@ const JoinUs = ({descriptionInfo}) => {
                       {splitTitle ? splitTitle[2] : "us"}
                     </div>
                   </h1>
-                  <h3 className="uppercase font-bold">
-                    {descriptionTitle ? descriptionTitle : "You Know"}
-                  </h3>
-                  <p className="max-w-xs text-center text-sm font-light">
-                    {description
-                      ? description
-                      : " It isnt that difficult, just click the button below and send us yout art."}
-                  </p>
-                  <div className="text-sm  transform translate-y-4 md:translate-y-16 bg-red-800 px-4 py-2 md:px-8 md:py-2 rounded-md animate-pulse hover:scale-125 active:scale-75 hover:animate-none ">
+                  {/* Text under title */}
+                  <div>
+                    <div className="flex flex-col justify-center items-center">
+                      <h3 className="relative uppercase font-bold">
+                        {descriptionTitle ? descriptionTitle : "You Know"}
+                      </h3>
+                      <p className="relative max-w-xs text-center text-sm font-light">
+                        {description
+                          ? description
+                          : " It isnt that difficult, just click the button below and send us yout art."}
+                      </p>
+                    </div>
+                    {/* <div className="text-sm  transform translate-y-4 md:translate-y-16 bg-red-800 px-4 py-2 md:px-8 md:py-2 rounded-md animate-pulse hover:scale-125 active:scale-75 hover:animate-none ">
                     <p>HERE</p>
-                    {/*  href="https://wetransfer.com/" */}
-                  </div>
-                  <div className="absolute bottom-4 animate-bounce">
-                    <Image
-                      src="/scroll.png"
-                      alt=""
-                      width="30"
-                      height="30"
-                      priority
-                    />
+                  </div> */}
+                    <div className="flex items-center justify-center">
+                      <div className="absolute bottom-4 animate-bounce">
+                        <Image
+                          src="/scroll.png"
+                          alt=""
+                          width="30"
+                          height="30"
+                          priority
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="flex justify-center items-center min-h-screen md:h-full  w-screen bg-red-800">
-                  <div>
-                    <iframe
-                      width="560"
-                      height="315"
-                      src={video}
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
+                {/* TODO: SECOND SECTION */}
+                <div className="flex flex-col justify-center items-center min-h-screen md:h-full  w-screen">
+                  <div className="relative flex  justify-center  items-center w-full py-20">
+                    <div className="container">
+                      <iframe
+                        className="responsive-iframe"
+                        src={video}
+                      ></iframe>
+                    </div>
+                  </div>
+                  {/* Button */}
+                  {/* <div className="flex flex-col justify-center items-center">
+                    <h3 className="relative uppercase font-bold">
+                      {descriptionTitle ? descriptionTitle : "You Know"}
+                    </h3>
+                    <p className="relative max-w-xs text-center text-sm font-light">
+                      {description
+                        ? description
+                        : " It isnt that difficult, just click the button below and send us yout art."}
+                    </p>
+                  </div> */}
+                  {/* TODO: LINK */}
+                  <div className="pb-20">
+                    <a
+                      href="https://wetransfer.com/"
+                      className="button1 bouncy"
+                    >
+                      WE TRANSFER
+                    </a>
                   </div>
                 </div>
               </div>
@@ -155,6 +200,12 @@ const JoinUs = ({descriptionInfo}) => {
 export const getServerSideProps = async ({ params }) => {
   const query = `*[_type == "joinUs"][0]{
     title,
+    mainImage{
+                    asset->{
+                        _id,
+                        url
+                    }
+                },
     descriptionTitle,
     description,
     video,

@@ -12,6 +12,10 @@ const AboutDemo = ({ about }) => {
 
   const { title, mission, vision, reasons, video, images, mainImage } = about;
 
+  console.log('====================================');
+  console.log(mainImage.asset.url);
+  console.log('====================================');
+
   // console.log(title);
 
   const [isVisible, setIsVisible] = useState(true);
@@ -43,7 +47,7 @@ const AboutDemo = ({ about }) => {
               {/* bg-black-white bg-cover bg-center */}
 
               <div className="relative flex justify-center bg-black items-center w-full h-screen  ">
-                {mainImage ? (
+                {mainImage.asset.url ? (
                   <Image
                     className="h-full w-full object-cover opacity-80"
                     src={mainImage.asset.url}

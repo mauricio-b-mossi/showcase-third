@@ -5,10 +5,18 @@ export default {
   fields: [
     {
       name: "title",
-      description:
-        "Max 3 letters en el title",
+      description: "Max 3 letters en el title",
       title: "Title",
       type: "string",
+    },
+    {
+      name: "mainImage",
+      title: "Main Image",
+      description: "Si no hay imagen el default es el fondo negro",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
     },
     {
       name: "descriptionTitle",

@@ -11,6 +11,8 @@ export default {
     {
       name: "mainImage",
       title: "Main Image",
+      description:
+        "Si no hay imagen el default es el fondo gotico",
       type: "image",
       options: {
         hotspot: true,

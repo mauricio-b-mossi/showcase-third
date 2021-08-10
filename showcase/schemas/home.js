@@ -14,6 +14,15 @@ export default {
       type: "string",
     },
     {
+      name: "mainImage",
+      title: "Main Image",
+      description: "Si no hay imagen el default es el fondo negro",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
       name: "home",
       title: "Home",
       type: "string",

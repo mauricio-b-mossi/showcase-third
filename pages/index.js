@@ -32,7 +32,7 @@ const Home = ({ homeInfo }) => {
     }, 3000);
   }, []);
 
-  const { title, home, artists, joinus, about } = homeInfo[0];
+  const { mainImage, home, artists, joinus, about } = homeInfo[0];
 
 
 
@@ -44,9 +44,20 @@ const Home = ({ homeInfo }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Anim intro={intro} className="" />
+      <div className='absolute min-h-screen min-w-full bg-black'>
+        {mainImage ? <Image
+          className="h-full w-full object-cover opacity-80"
+          src={mainImage.asset.url}
+          alt=""
+          layout="fill"
+          priority={true}
+        /> : <div></div>}
+        
+      </div>
 
-      <motion.div className="font-body text-7xl sm:text-9xl min-h-screen bg-black  flex flex-col items-center  justify-center uppercase  relative overflow-hidden ">
+      <motion.div className=" font-body text-7xl sm:text-9xl min-h-screen flex flex-col items-center  justify-center uppercase  relative overflow-hidden ">
         <div className="">
+          {/* TODO: THIS IS THE HEADER */}
           <Link href="/">
             {/* h-12 w-12 top-6 left-6 */}
             <div className="absolute h-20 w-20 top-4 left-4 sm:h-24 sm:w-24 sm:top-12 sm:left-12  cursor-pointer">
@@ -60,6 +71,7 @@ const Home = ({ homeInfo }) => {
               </a>
             </div>
           </Link>
+
           {/* Start images */}
           {/* <div className="relative flex justify-center bg-black items-center w-full h-screen  ">
             <Image
@@ -73,20 +85,22 @@ const Home = ({ homeInfo }) => {
               About
             </h1>
           </div> */}
-          <div className="flex justify-center items-center m-4 ">
-            <Link href="/">
-              <a>
-                <HoverItems
-                  text={"Home"}
-                  position={"text-white hover:text-red-300 cursor-pointer"}
-                />
-              </a>
-            </Link>
-            <div className="hidden md:block">
-              <SideText sideText={JSON.stringify(home)} />
+          {/* FIXME: LINKS START HERE */}
+          <div>
+            <div className="flex justify-center items-center m-4 ">
+              <Link href="/">
+                <a>
+                  <HoverItems
+                    text={"Home"}
+                    position={"text-white hover:text-red-300 cursor-pointer"}
+                  />
+                </a>
+              </Link>
+              <div className="hidden md:block">
+                <SideText sideText={JSON.stringify(home)} />
+              </div>
             </div>
-          </div>
-          {/* <Image
+            {/* <Image
           className="absolute animate-spin-slow right-4 bottom-4 rounded-full"
           src="/Product_0.svg"
           alt=""
@@ -94,45 +108,47 @@ const Home = ({ homeInfo }) => {
           height="160"
 
         /> */}
-          <div className="flex justify-center items-center m-4">
-            <div className="hidden md:block">
-              <SideText sideText={JSON.stringify(artists)} />
+            <div className="flex justify-center items-center m-4">
+              <div className="hidden md:block">
+                <SideText sideText={JSON.stringify(artists)} />
+              </div>
+              <Link href="/artists">
+                <a>
+                  <HoverItems
+                    text={"Artists"}
+                    position={"text-white hover:text-yellow-300 cursor-pointer"}
+                  />
+                </a>
+              </Link>
             </div>
-            <Link href="/artists">
-              <a>
-                <HoverItems
-                  text={"Artists"}
-                  position={"text-white hover:text-yellow-300 cursor-pointer"}
-                />
-              </a>
-            </Link>
-          </div>
-          <div className="flex justify-center items-center m-4">
-            <Link href="/joinUs">
-              <a>
-                <HoverItems
-                  text={"Join Us"}
-                  position={"text-white hover:text-green-300 cursor-pointer"}
-                />
-              </a>
-            </Link>
-            <div className="hidden md:block">
-              <SideText sideText={JSON.stringify(joinus)} />
+            <div className="flex justify-center items-center m-4">
+              <Link href="/joinUs">
+                <a>
+                  <HoverItems
+                    text={"Join Us"}
+                    position={"text-white hover:text-green-300 cursor-pointer"}
+                  />
+                </a>
+              </Link>
+              <div className="hidden md:block">
+                <SideText sideText={JSON.stringify(joinus)} />
+              </div>
+            </div>
+            <div className="flex justify-center items-center m-4">
+              <div className="hidden md:block">
+                <SideText sideText={JSON.stringify(about)} />
+              </div>
+              <Link href="/aboutDemo">
+                <a>
+                  <HoverItems
+                    text={"About"}
+                    position={"text-white hover:text-blue-300 cursor-pointer"}
+                  />
+                </a>
+              </Link>
             </div>
           </div>
-          <div className="flex justify-center items-center m-4">
-            <div className="hidden md:block">
-              <SideText sideText={JSON.stringify(about)} />
-            </div>
-            <Link href="/aboutDemo">
-              <a>
-                <HoverItems
-                  text={"About"}
-                  position={"text-white hover:text-blue-300 cursor-pointer"}
-                />
-              </a>
-            </Link>
-          </div>
+          {/* FIXME: LINKS START HERE */}
           <motion.div className="absolute bottom-0 left-0"></motion.div>
         </div>
       </motion.div>
@@ -142,7 +158,18 @@ const Home = ({ homeInfo }) => {
 
 // export const getStaticProps = async ({ params }) => {
 export const getServerSideProps = async ({ params }) => {
-  const query = `*[_type == "home"]`;
+  const query = `*[_type == "home"]{
+      mainImage{
+                    asset->{
+                        _id,
+                        url
+                    }
+                },
+    home,
+    artists,
+    joinus,
+    about
+  }`;
 
   const homeInfo = await sanityClient.fetch(query);
 
