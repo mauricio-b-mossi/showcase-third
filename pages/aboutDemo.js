@@ -10,7 +10,17 @@ import SwipeAbout from "../components/SwipeAbout";
 
 const AboutDemo = ({ about }) => {
 
-  const { title, mission, vision, reasons, video, images, mainImage } = about;
+  const {
+    title,
+    mission,
+    vision,
+    reasons,
+    video,
+    images,
+    mainImage,
+    mainImageVideo,
+    mainImageMVR,
+  } = about;
 
   console.log('====================================');
   console.log(mainImage.asset.url);
@@ -44,8 +54,6 @@ const AboutDemo = ({ about }) => {
           <>
             <Nav />
             <motion.div className="min-h-screen bg-black flex flex-col items-center justify-center text-white  md:p-10 lg:p-20 font-body ">
-              {/* bg-black-white bg-cover bg-center */}
-
               <div className="relative flex justify-center bg-black items-center w-full h-screen  ">
                 {mainImage.asset.url ? (
                   <Image
@@ -70,6 +78,19 @@ const AboutDemo = ({ about }) => {
               </div>
 
               <div className="relative flex justify-center bg-black items-center w-full py-20">
+                <div className="block md:hidden">
+                  {mainImageVideo.asset.url ? (
+                    <Image
+                      className="h-full w-full object-cover opacity-80"
+                      src={mainImageVideo.asset.url}
+                      alt=""
+                      layout="fill"
+                      priority={true}
+                    />
+                  ) : (
+                    <div className="bg-black"></div>
+                  )}
+                </div>
                 <div className="container">
                   <iframe className="responsive-iframe" src={video}></iframe>
                 </div>
@@ -79,20 +100,7 @@ const AboutDemo = ({ about }) => {
                 <div className="text-sm md:text-xl transform m-4 md:m-0 md:rotate-90 border-b-2 border-t-2   border-white">
                   swipe swipe swipe
                 </div>
-                {/* <div className="h-96 w-60 block">
-                  <DraggableImage
-                    style={"h-96 w-60 object-cover absolute z-10"}
-                    src={"/BWBG.jpg"}
-                  />
-                  <DraggableImage
-                    style={"h-96 w-60 object-cover absolute z-10"}
-                    src={"/artsyBG.jpg"}
-                  />
-                  <DraggableImage
-                    style={"h-96 w-60 object-cover absolute z-10"}
-                    src={"/BWBG.jpg"}
-                  />
-                </div> */}
+
                 <SwipeAbout list={images} />
                 <div className="text-sm md:text-xl m-4 md:m-0 transform md:-rotate-90 border-b-2 border-t-2    border-white">
                   swipe swipe swipe
@@ -103,23 +111,26 @@ const AboutDemo = ({ about }) => {
                 <iframe className="responsive-iframe" src={video}></iframe>
               </div> */}
 
-              <div className="pb-10 md:p-0">
-                <motion.div className=" bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
-                  <h1 className="pt-20 block md:hidden uppercase text-center text-3xl sm:text-7xl lg:text-8xl xl:text-9xl py-4 md:py-16  font-bold">
-                    <div>Our</div>
-                    <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
-                      Mission
-                    </div>
-                    <div className="relative transform -translate-y-4 lg:-translate-y-8 xl:-translate-y-16">
-                      {/* We? */}
-                    </div>
-                  </h1>
-                  <div className="flex justify-center items-center h-full w-full px-4 text-sm md:text-xl  lg:text-2xl xl:text-3xl font-thin max-w-sm md:max-w-none pb-16 md:pb-0">
-                    {/* <img src="./artsyBG.jpg" alt="" /> */}
-                    <p>{mission}</p>
-                  </div>
-                  <div className="flex flex-col justify-center items-center">
-                    <h1 className="hidden md:block uppercase text-center  sm:text-7xl lg:text-8xl xl:text-9xl py-16 font-bold">
+              <div className="relative flex justify-center bg-black items-center w-auto h-auto  ">
+                <div className="block md:hidden">
+                  {mainImageMVR.asset.url ? (
+                    <Image
+                      className="h-full w-full object-cover opacity-80"
+                      src={mainImageMVR.asset.url}
+                      alt=""
+                      layout="fill"
+                      priority={true}
+                    />
+                  ) : (
+                    <div className="bg-black"></div>
+                  )}
+                </div>
+                {/* <h1 className="absolute text-7xl sm:text-9xl lg:text-xxl font-bold uppercase">
+                  About
+                </h1> */}
+                <div className="pb-10 md:p-0">
+                  <motion.div className=" bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
+                    <h1 className="relative pt-20 block md:hidden uppercase text-center text-3xl sm:text-7xl lg:text-8xl xl:text-9xl py-4 md:py-16  font-bold">
                       <div>Our</div>
                       <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
                         Mission
@@ -128,41 +139,41 @@ const AboutDemo = ({ about }) => {
                         {/* We? */}
                       </div>
                     </h1>
-                  </div>
-                </motion.div>
-                <motion.div className="bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
-                  <div className="flex flex-col justify-center items-center">
-                    <h1 className="uppercase text-center text-3xl sm:text-7xl lg:text-8xl xl:text-9xl py-4 md:py-16 font-bold">
-                      <div>Our</div>
-                      <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
-                        Vision
-                      </div>
-                      <div className="relative transform -translate-y-4 lg:-translate-y-8 xl:-translate-y-16">
-                        {/* We? */}
-                      </div>
-                    </h1>
-                  </div>
-                  <div className="flex justify-center items-center h-full w-full px-4 text-sm md:text-xl  lg:text-2xl xl:text-3xl font-thin max-w-sm md:max-w-none pb-16 md:pb-0">
-                    {/* <img src="./artsyBG.jpg" alt="" /> */}
-                    <p>{vision}</p>
-                  </div>
-                </motion.div>
-                <motion.div className=" bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
-                  <h1 className="block md:hidden uppercase text-center text-3xl sm:text-7xl lg:text-8xl xl:text-9xl py-4 md:py-16 font-bold">
-                    <div>Couple</div>
-                    <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
-                      Reasons
+                    <div className="relative flex justify-center items-center h-full w-full px-4 text-sm md:text-xl  lg:text-2xl xl:text-3xl font-thin max-w-sm md:max-w-none pb-16 md:pb-0">
+                      {/* <img src="./artsyBG.jpg" alt="" /> */}
+                      <p>{mission}</p>
                     </div>
-                    <div className="relative transform -translate-y-4 lg:-translate-y-8 xl:-translate-y-16">
-                      {/* We? */}
+                    <div className="flex flex-col justify-center items-center">
+                      <h1 className="hidden md:block relative uppercase text-center  sm:text-7xl lg:text-8xl xl:text-9xl py-16 font-bold">
+                        <div>Our</div>
+                        <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
+                          Mission
+                        </div>
+                        <div className="relative transform -translate-y-4 lg:-translate-y-8 xl:-translate-y-16">
+                          {/* We? */}
+                        </div>
+                      </h1>
                     </div>
-                  </h1>
-                  <div className="flex justify-center items-center h-full w-full px-4 text-sm md:text-xl  lg:text-2xl xl:text-3xl font-thin max-w-sm md:max-w-none pb-16 md:pb-0">
-                    {/* <img src="./artsyBG.jpg" alt="" /> */}
-                    <p>{reasons}</p>
-                  </div>
-                  <div className="flex flex-col justify-center items-center">
-                    <h1 className="hidden md:block uppercase text-center  sm:text-7xl lg:text-8xl xl:text-9xl py-16 font-bold">
+                  </motion.div>
+                  <motion.div className="bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
+                    <div className="flex flex-col justify-center items-center">
+                      <h1 className="relative uppercase text-center text-3xl sm:text-7xl lg:text-8xl xl:text-9xl py-4 md:py-16 font-bold">
+                        <div>Our</div>
+                        <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
+                          Vision
+                        </div>
+                        <div className="relative transform -translate-y-4 lg:-translate-y-8 xl:-translate-y-16">
+                          {/* We? */}
+                        </div>
+                      </h1>
+                    </div>
+                    <div className="relative flex justify-center items-center h-full w-full px-4 text-sm md:text-xl  lg:text-2xl xl:text-3xl font-thin max-w-sm md:max-w-none pb-16 md:pb-0">
+                      {/* <img src="./artsyBG.jpg" alt="" /> */}
+                      <p>{vision}</p>
+                    </div>
+                  </motion.div>
+                  <motion.div className=" bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
+                    <h1 className="relative block md:hidden uppercase text-center text-3xl sm:text-7xl lg:text-8xl xl:text-9xl py-4 md:py-16 font-bold">
                       <div>Couple</div>
                       <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
                         Reasons
@@ -171,8 +182,23 @@ const AboutDemo = ({ about }) => {
                         {/* We? */}
                       </div>
                     </h1>
-                  </div>
-                </motion.div>
+                    <div className="relative flex justify-center items-center h-full w-full px-4 text-sm md:text-xl  lg:text-2xl xl:text-3xl font-thin max-w-sm md:max-w-none pb-16 md:pb-0">
+                      {/* <img src="./artsyBG.jpg" alt="" /> */}
+                      <p>{reasons}</p>
+                    </div>
+                    <div className="flex flex-col justify-center items-center">
+                      <h1 className="hidden md:block relative uppercase text-center  sm:text-7xl lg:text-8xl xl:text-9xl py-16 font-bold">
+                        <div>Couple</div>
+                        <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
+                          Reasons
+                        </div>
+                        <div className="relative transform -translate-y-4 lg:-translate-y-8 xl:-translate-y-16">
+                          {/* We? */}
+                        </div>
+                      </h1>
+                    </div>
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
           </>
@@ -191,6 +217,18 @@ export const getServerSideProps = async ({ params }) => {
   const query = `*[_type == "aboutUs"][0]{
     title,
     mainImage{
+                    asset->{
+                        _id,
+                        url
+                    }
+                },
+      mainImageVideo{
+                    asset->{
+                        _id,
+                        url
+                    }
+                },
+                  mainImageMVR{
                     asset->{
                         _id,
                         url

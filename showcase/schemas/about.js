@@ -11,8 +11,7 @@ export default {
     {
       name: "mainImage",
       title: "Main Image",
-      description:
-        "Si no hay imagen el default es el fondo gotico",
+      description: "Si no hay imagen el default es el fondo gotico",
       type: "image",
       options: {
         hotspot: true,
@@ -26,11 +25,29 @@ export default {
       type: "string",
     },
     {
+      name: "mainImageVideo",
+      title: "Video Image",
+      description: "Fondo de pantalla de video",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
       name: "images",
       title: "Images",
       description: "Imagenes en la seccion de about",
       type: "array",
       of: [{ type: "image" }],
+    },
+    {
+      name: "mainImageMVR",
+      title: "Mission Vision Reasons Image",
+      description: "Fondo de pantalla de Our Mission, Our Vision, Couple Reasons",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
     },
     {
       name: "mission",
