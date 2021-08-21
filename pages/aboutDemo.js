@@ -23,7 +23,7 @@ const AboutDemo = ({ about }) => {
   } = about;
 
   console.log('====================================');
-  console.log(mainImage.asset.url);
+  console.log(mainImageMVR);
   console.log('====================================');
 
   // console.log(title);
@@ -79,7 +79,7 @@ const AboutDemo = ({ about }) => {
 
               <div className="relative flex justify-center bg-black items-center w-full py-20">
                 <div className="block md:hidden">
-                  {mainImageVideo.asset.url ? (
+                  {mainImageVideo ? (
                     <Image
                       className="h-full w-full object-cover opacity-80"
                       src={mainImageVideo.asset.url}
@@ -113,7 +113,7 @@ const AboutDemo = ({ about }) => {
 
               <div className="relative flex justify-center bg-black items-center w-auto h-auto  ">
                 <div className="block md:hidden">
-                  {mainImageMVR.asset.url ? (
+                  {mainImageMVR ? (
                     <Image
                       className="h-full w-full object-cover opacity-80"
                       src={mainImageMVR.asset.url}

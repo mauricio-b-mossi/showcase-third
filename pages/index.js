@@ -44,15 +44,20 @@ const Home = ({ homeInfo }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Anim intro={intro} className="" />
-      <div className='absolute min-h-screen min-w-full bg-black'>
-        {mainImage ? <Image
-          className="h-full w-full object-cover opacity-80"
-          src={mainImage.asset.url}
-          alt=""
-          layout="fill"
-          priority={true}
-        /> : <div></div>}
-        
+      <div className="absolute min-h-screen min-w-full bg-black">
+        <div className='block md:hidden'>
+          {mainImage ? (
+            <Image
+              className="h-full w-full object-cover opacity-80"
+              src={mainImage.asset.url}
+              alt=""
+              layout="fill"
+              priority={true}
+            />
+          ) : (
+            <div></div>
+          )}
+        </div>
       </div>
 
       <motion.div className=" font-body text-7xl sm:text-9xl min-h-screen flex flex-col items-center  justify-center uppercase  relative overflow-hidden ">
