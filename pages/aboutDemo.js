@@ -55,7 +55,7 @@ const AboutDemo = ({ about }) => {
             <Nav />
             <motion.div className="min-h-screen bg-black flex flex-col items-center justify-center text-white  md:p-10 lg:p-20 font-body ">
               <div className="relative flex justify-center bg-black items-center w-full h-screen  ">
-                {mainImage.asset.url ? (
+                {mainImage ? (
                   <Image
                     className="h-full w-full object-cover opacity-80"
                     src={mainImage.asset.url}
