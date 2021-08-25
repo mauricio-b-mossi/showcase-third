@@ -42,5 +42,10 @@ export default {
       title: "About",
       type: "string",
     },
+    {
+      name: "team",
+      title: "Team",
+      type: "string",
+    },
   ],
 };

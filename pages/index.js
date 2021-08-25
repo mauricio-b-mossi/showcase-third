@@ -32,7 +32,7 @@ const Home = ({ homeInfo }) => {
     }, 3000);
   }, []);
 
-  const { mainImage, home, artists, joinus, about } = homeInfo[0];
+  const { mainImage, home, artists, joinus, about, team } = homeInfo[0];
 
 
 
@@ -45,7 +45,7 @@ const Home = ({ homeInfo }) => {
       </Head>
       <Anim intro={intro} className="" />
       <div className="absolute min-h-screen min-w-full bg-black">
-        <div className='block md:hidden'>
+        <div className="block md:hidden">
           {mainImage ? (
             <Image
               className="h-full w-full object-cover opacity-80"
@@ -60,7 +60,8 @@ const Home = ({ homeInfo }) => {
         </div>
       </div>
 
-      <motion.div className=" font-body text-7xl sm:text-9xl min-h-screen flex flex-col items-center  justify-center uppercase  relative overflow-hidden ">
+      {/* sm:text-9xl */}
+      <motion.div className=" font-body text-7xl min-h-screen flex flex-col items-center  justify-center uppercase  relative overflow-hidden ">
         <div className="">
           {/* TODO: THIS IS THE HEADER */}
           <Link href="/">
@@ -130,7 +131,7 @@ const Home = ({ homeInfo }) => {
               <Link href="/joinUs">
                 <a>
                   <HoverItems
-                    text={"Join Us"}
+                    text={"Join"}
                     position={"text-white hover:text-green-300 cursor-pointer"}
                   />
                 </a>
@@ -152,6 +153,21 @@ const Home = ({ homeInfo }) => {
                 </a>
               </Link>
             </div>
+            {/* HERE */}
+            <div className="flex justify-center items-center m-4">
+              <Link href="/getToKnowUs">
+                <a>
+                  <HoverItems
+                    text={"Team"}
+                    position={"text-white hover:text-yellow-600 cursor-pointer"}
+                  />
+                </a>
+              </Link>
+              <div className="hidden md:block">
+                <SideText sideText={JSON.stringify(team)} />
+              </div>
+            </div>
+            {/* HERE */}
           </div>
           {/* FIXME: LINKS START HERE */}
           <motion.div className="absolute bottom-0 left-0"></motion.div>
@@ -161,8 +177,8 @@ const Home = ({ homeInfo }) => {
   );
 };
 
-// export const getStaticProps = async ({ params }) => {
-export const getServerSideProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
+// export const getServerSideProps = async ({ params }) => {
   const query = `*[_type == "home"]{
       mainImage{
                     asset->{
@@ -173,7 +189,8 @@ export const getServerSideProps = async ({ params }) => {
     home,
     artists,
     joinus,
-    about
+    about,
+    team
   }`;
 
   const homeInfo = await sanityClient.fetch(query);

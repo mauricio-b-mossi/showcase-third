@@ -1,29 +1,10 @@
 import React from "react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { sanityClient } from "../../sanity";
 import SwiperWOLinks from "../../components/SwiperWOLinks";
 
-// export const getStaticPaths = async () => {
-//   const query = `*[_type == "posts"]{
-//     slug{
-//       current
-//     }
-//   }`;
 
-//   const postInfo = await sanityClient.fetch(query);
-
-//   const paths = postInfo.map((post) => {
-//     return {
-//       params: {slug: post.slug.current}
-//     }
-//   })
-
-//   return {
-//     paths,
-//     fallback: false
-//   };
-
-// }
 
 const Slug = (props) => {
   // const { mainImage, images, title, description } = props;
@@ -51,6 +32,7 @@ const Slug = (props) => {
             <p>{props.slugInfo.description}</p>
           </div>
         </div>
+
         {/* <div className="hidden">
                   <ImageGallery />
                 </div> */}

@@ -23,9 +23,7 @@ const Nav = () => {
         <div className="font-body bg-black flex flex-col items-center justify-center uppercase  relative z-20 ">
           <nav>
             <Link href="/">
-              <div
-                className="fixed h-20 w-20 top-4 left-4 sm:h-24 sm:w-24 sm:top-12 sm:left-12  cursor-pointer"
-              >
+              <div className="fixed h-20 w-20 top-4 left-4 sm:h-24 sm:w-24 sm:top-12 sm:left-12  cursor-pointer">
                 <a>
                   {/* objectFit='contain' */}
                   <Image
@@ -57,7 +55,7 @@ const Nav = () => {
               <Link href="/joinUs">
                 <a>
                   <HoverNav
-                    text={"Join Us"}
+                    text={"Join"}
                     position={"text-white hover:text-green-300 cursor-pointer"}
                   />
                 </a>
@@ -67,6 +65,14 @@ const Nav = () => {
                   <HoverNav
                     text={"About"}
                     position={"text-white hover:text-blue-300 cursor-pointer"}
+                  />
+                </a>
+              </Link>
+              <Link href="/getToKnowUs">
+                <a>
+                  <HoverNav
+                    text={"Team"}
+                    position={"text-white hover:text-yellow-600 cursor-pointer"}
                   />
                 </a>
               </Link>

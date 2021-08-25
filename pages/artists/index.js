@@ -114,8 +114,8 @@ const Index = ({artistsInfo,
   );
 };
 
-// export const getStaticProps = async ({ params }) => {
-export const getServerSideProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
+// export const getServerSideProps = async ({ params }) => {
   const query = `*[_type == "artists"]`;
   const aMusicalesQuery = `*[_type == "posts" && category == "artesMusicales"]{
     slug,
