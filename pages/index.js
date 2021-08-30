@@ -131,7 +131,7 @@ const Home = ({ homeInfo }) => {
               <Link href="/joinUs">
                 <a>
                   <HoverItems
-                    text={"Join"}
+                    text={"Join-us"}
                     position={"text-white hover:text-green-300 cursor-pointer"}
                   />
                 </a>
@@ -158,7 +158,7 @@ const Home = ({ homeInfo }) => {
               <Link href="/getToKnowUs">
                 <a>
                   <HoverItems
-                    text={"Team"}
+                    text={"the-team"}
                     position={"text-white hover:text-yellow-600 cursor-pointer"}
                   />
                 </a>

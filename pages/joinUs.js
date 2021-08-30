@@ -32,19 +32,12 @@ const JoinUs = ({descriptionInfo}) => {
           <>
             {/* TODO: DESKTOP */}
             {/*  md:block */}
-            <div className="hidden">
+            {/* <div className="hidden">
               <Nav />
 
               <div className="min-h-screen bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
                 <div className="flex justify-center items-center h-full w-full bg-red-800">
-                  {/* <div className="asp aspect-w-16 aspect-h-9"> */}
-                  {/* <Image
-                      src="/artsyBG.jpg"
-                      alt=""
-                      width="1600"
-                      height="900"
-                      priority
-                    /> */}
+               
                   <iframe
                     width="560"
                     height="315"
@@ -54,7 +47,6 @@ const JoinUs = ({descriptionInfo}) => {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   ></iframe>
-                  {/* </div> */}
                 </div>
                 <div className="flex flex-col justify-center items-center min-h-screen ">
                   <h1 className="uppercase text-center text-7xl lg:text-8xl 2xl:text-9xl font-bold absolute top-1/4 ">
@@ -87,7 +79,7 @@ const JoinUs = ({descriptionInfo}) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* TODO: MOBIL */}
             {/*  md:hidden */}
