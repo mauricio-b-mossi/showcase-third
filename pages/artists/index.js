@@ -38,13 +38,13 @@ const Index = ({artistsInfo,
             <Nav />
             {/* El de abajo llegveria de llevar padding instead */}
             <motion.div className="min-h-screen bg-black flex flex-col items-center justify-center text-white font-body">
-              <div className="grid md:grid-cols-2 min-h-screen justify-center items-center py-20 sm:p-10 lg:p-20">
+              <div className="grid lg:grid-cols-2 min-h-screen justify-center items-center py-20 sm:p-10 lg:p-20">
                 {/* Images galley */}
                 {/* <div className="hidden">
                   <ImageGallery />
                 </div> */}
                 {/* Title and text */}
-                <div className="hidden md:block">
+                <div className="hidden lg:block">
                   <Swiper list={aMusicalesImgs} />
                 </div>
                 {/* <div className="hidden">
@@ -52,53 +52,53 @@ const Index = ({artistsInfo,
                 </div> */}
                 {/* Title and text */}
                 <div className="flex flex-col justify-center items-center">
-                  <h1 className="uppercase text-center text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl py-4 md:py-16 font-bold">
+                  <h1 className="uppercase text-center text-5xl sm:text-7xl  2xl:text-9xl py-4 lg:py-16 font-bold">
                     <div>Artes</div>
                     <div className="relative transform -translate-y-2 lg:-translate-y-4 2xl:-translate-y-8">
                       Musicales
                     </div>
                   </h1>
-                  <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xs md:text-base">
+                  <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 lg:py-0 text-xs md:text-lg">
                     <p>{aMusicales}</p>
                   </div>
                 </div>
-                <div className="block md:hidden pb-16">
+                <div className="block lg:hidden pb-16">
                   <Swiper list={aMusicalesImgs} />
                 </div>
 
                 <div className="flex flex-col justify-center items-center">
-                  <h1 className="uppercase text-center text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl  py-4 md:py-16 font-bold">
+                  <h1 className="uppercase text-center text-5xl sm:text-7xl  2xl:text-9xl  py-4 lg:py-16 font-bold">
                     <div>Artes</div>
                     <div className="relative transform -translate-y-2 lg:-translate-y-4 2xl:-translate-y-8">
                       Visuales
                     </div>
                   </h1>
-                  <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xs md:text-base">
+                  <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 lg:py-0 text-xs md:text-lg">
                     <p>{aVisuales}</p>
                   </div>
                 </div>
                 {/* <div className="hidden">
                   <ImageGallery />
                 </div> */}
-                <div className="pb-16 md:pb-0">
+                <div className="pb-16 lg:pb-0">
                   <Swiper list={aVisualesImgs} />
                 </div>
-                <div className="hidden md:block">
+                <div className="hidden lg:block">
                   <Swiper list={aMixtasImgs} />
                 </div>
                 {/* Title and text */}
                 <div className="flex flex-col justify-center items-center">
-                  <h1 className="uppercase text-center text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl py-4 md:py-16 font-bold">
+                  <h1 className="uppercase text-center text-5xl sm:text-7xl  2xl:text-9xl py-4 lg:py-16 font-bold">
                     <div>Artes</div>
                     <div className="relative transform -translate-y-2 lg:-translate-y-4 2xl:-translate-y-8">
                       Mixtas
                     </div>
                   </h1>
-                  <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xs md:text-base">
+                  <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 lg:py-0 text-xs md:text-lg">
                     <p>{aMixtas}</p>
                   </div>
                 </div>
-                <div className="block md:hidden pb-16">
+                <div className="block lg:hidden pb-16">
                   <Swiper list={aMixtasImgs} />
                 </div>
               </div>

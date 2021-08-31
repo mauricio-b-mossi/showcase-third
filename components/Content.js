@@ -12,7 +12,7 @@ const Content = ({text}) => {
           exit={{ opacity: 0 }}
         >
           {/* This is the text */}
-          <div className="max-w-lg text-center text-xl">
+          <div className="max-w-lg text-center text-base md:text-xl">
             {text}
           </div>
         </motion.div>

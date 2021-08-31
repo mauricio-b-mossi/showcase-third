@@ -22,9 +22,9 @@ const AboutDemo = ({ about }) => {
     mainImageMVR,
   } = about;
 
-  console.log('====================================');
-  console.log(mainImageMVR);
-  console.log('====================================');
+  // console.log('====================================');
+  // console.log(mainImageMVR);
+  // console.log('====================================');
 
   // console.log(title);
 

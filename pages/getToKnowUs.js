@@ -62,10 +62,10 @@ const getToKnowUs = ({ members, page }) => {
           </div>
           {/* Team description */}
           <div className="px-10">
-            <div className="relative flex justify-center items-center text-center pb-10 md:text-xl text-lg uppercase ">
+            <div className="relative flex justify-center items-center text-center pb-10 md:text-xl text-md uppercase font-bold ">
               <div className="max-w-5xl">
                 <h3>
-                  {description ? description : "                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut nobis nemo recusandae distinctio hic rerum enim assumenda animi. Voluptatum consectetur assumenda quia facilis eos inventore iure, eligendi illum modi soluta!"}
+                  {description ? description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut nobis nemo recusandae distinctio hic rerum enim assumenda animi. Voluptatum consectetur assumenda quia facilis eos inventore iure, eligendi illum modi soluta!"}
                 </h3>
               </div>
             </div>
@@ -92,8 +92,8 @@ const getToKnowUs = ({ members, page }) => {
   );
 };
 
-export const getStaticProps = async ({ params }) => {
-  // export const getServerSideProps = async ({ params }) => {
+// export const getStaticProps = async ({ params }) => {
+  export const getServerSideProps = async ({ params }) => {
   const membersQuery = `*[_type == "members"]{
     name,
     position,
