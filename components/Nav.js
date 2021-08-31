@@ -60,7 +60,7 @@ const Nav = () => {
                   />
                 </a>
               </Link>
-              <Link href="/aboutDemo">
+              <Link href="/about">
                 <a>
                   <HoverNav
                     text={"About"}
