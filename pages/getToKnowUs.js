@@ -10,7 +10,7 @@ import Members from "../components/Members"
 const getToKnowUs = ({ members, page }) => {
 
 
-  const {title, description, mainImage} = page;
+  const {description, mainImage} = page;
 
   return (
     <div>
@@ -22,6 +22,7 @@ const getToKnowUs = ({ members, page }) => {
       <div className="overflow-x-hidden">
         <s className="block">
           <Nav />
+          {/* md:hidden block  */}
           <div className="absolute min-h-screen min-w-full bg-black">
             {mainImage ? (
               <Image
@@ -41,6 +42,15 @@ const getToKnowUs = ({ members, page }) => {
               />
             )}
           </div>
+          {/* <div className="md:block hidden absolute min-h-screen min-w-full bg-black">
+            <Image
+              className="h-full w-full object-cover opacity-80"
+              src="/BWBG.jpg"
+              alt=""
+              layout="fill"
+              priority={true}
+            />
+          </div> */}
           {/* remember the padding 20 */}
         </s>
         <div className="max-h-screen bg-black  items-center justify-center text-white font-body">
@@ -65,7 +75,9 @@ const getToKnowUs = ({ members, page }) => {
             <div className="relative flex justify-center items-center text-center pb-10 md:text-xl text-md uppercase font-bold ">
               <div className="max-w-5xl">
                 <h3>
-                  {description ? description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut nobis nemo recusandae distinctio hic rerum enim assumenda animi. Voluptatum consectetur assumenda quia facilis eos inventore iure, eligendi illum modi soluta!"}
+                  {description
+                    ? description
+                    : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut nobis nemo recusandae distinctio hic rerum enim assumenda animi. Voluptatum consectetur assumenda quia facilis eos inventore iure, eligendi illum modi soluta!"}
                 </h3>
               </div>
             </div>
@@ -73,14 +85,15 @@ const getToKnowUs = ({ members, page }) => {
           {/* Members */}
           <div className="relative flex flex-col justify-center items-center md:flex-row">
             <AnimateSharedLayout>
-              <motion.div layout
+              <motion.div
+                layout
                 // initial={{ borderRadius: 25 }}
-              > {members && members.map((member, index) => (
-                <Members member={member} key={index} />
-              ))}
-                
-               
-
+              >
+                {" "}
+                {members &&
+                  members.map((member, index) => (
+                    <Members member={member} key={index} />
+                  ))}
               </motion.div>
             </AnimateSharedLayout>
             {/* Individual card */}
@@ -105,10 +118,8 @@ const getToKnowUs = ({ members, page }) => {
                     }
                 },
   }`;
-  const pageQuery = `*[_type == "members"]{
-    name,
-    position,
-    biography,
+  const pageQuery = `*[_type == "team"][0]{
+    description,
     mainImage{
                     asset->{
                         _id,
