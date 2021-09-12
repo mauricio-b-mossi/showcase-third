@@ -9,6 +9,19 @@ export default {
       type: "string",
     },
     {
+      name: "cover",
+      title: "Cover",
+      description: "Marcar el botton 'Cover' si la imagen es la caratula de la seccion de arte",
+      type: "string",
+      options: {
+        list: [
+          { title: "Cover", value: "Cover" },
+          { title: "No Cover", value: "No Cover" },
+        ],
+        layout: "radio",
+      },
+    },
+    {
       name: "description",
       title: "Description",
       type: "text",

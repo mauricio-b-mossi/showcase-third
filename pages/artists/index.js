@@ -8,18 +8,34 @@ import ImageGallery from "../../components/ImageGallery";
 import Swiper from "../../components/Swiper";
 import { sanityClient } from "../../sanity";
 
-const Index = ({artistsInfo,
-      aMusicalesImgs,
-      aMixtasImgs,
-      aVisualesImgs}) => {
+const Index = ({
+  artistsInfo,
+  aMusicalesImgs,
+  aMixtasImgs,
+  aVisualesImgs,
+  aMixtasCover,
+  aMusicalesCover,
+  aVisualesCover,
+}) => {
   const [isVisible, setIsVisible] = useState(true);
+
+  // TODO: SPREAD OPPERATE ALL THE aArtImgs while adding new IMG from the artist info
 
   function AnimationEnds() {
     setIsVisible(true);
   }
 
+  const { aMixtas, aMusicales, aVisuales} = artistsInfo[0];
 
-  const { aMixtas, aMusicales, aVisuales } = artistsInfo[0];
+  // const defactor = aMusicalesCover.filter((img)=>img.mainImage)
+
+  const aMusicalesImgsSlide = [aMusicalesCover, ...aMusicalesImgs];
+  const aMixtasImgsSlide = [ aMixtasCover, ...aMixtasImgs ];
+  const aVisualesImgsSlide = [aVisualesCover, ...aVisualesImgs];
+  
+  console.log('====================================');
+  console.log(aMusicalesImgsSlide);
+  console.log('====================================');
 
 
   return (
@@ -45,7 +61,7 @@ const Index = ({artistsInfo,
                 </div> */}
                 {/* Title and text */}
                 <div className="hidden lg:block">
-                  <Swiper list={aMusicalesImgs} />
+                  <Swiper list={aMusicalesImgsSlide} />
                 </div>
                 {/* <div className="hidden">
                   <ImageGallery />
@@ -63,7 +79,7 @@ const Index = ({artistsInfo,
                   </div>
                 </div>
                 <div className="block lg:hidden pb-16">
-                  <Swiper list={aMusicalesImgs} />
+                  <Swiper list={aMusicalesImgsSlide} />
                 </div>
 
                 <div className="flex flex-col justify-center items-center">
@@ -81,10 +97,10 @@ const Index = ({artistsInfo,
                   <ImageGallery />
                 </div> */}
                 <div className="pb-16 lg:pb-0">
-                  <Swiper list={aVisualesImgs} />
+                  <Swiper list={aVisualesImgsSlide} />
                 </div>
                 <div className="hidden lg:block">
-                  <Swiper list={aMixtasImgs} />
+                  <Swiper list={aMixtasImgsSlide} />
                 </div>
                 {/* Title and text */}
                 <div className="flex flex-col justify-center items-center">
@@ -99,7 +115,7 @@ const Index = ({artistsInfo,
                   </div>
                 </div>
                 <div className="block lg:hidden pb-16">
-                  <Swiper list={aMixtasImgs} />
+                  <Swiper list={aMixtasImgsSlide} />
                 </div>
               </div>
             </motion.div>
@@ -116,8 +132,31 @@ const Index = ({artistsInfo,
 
 export const getStaticProps = async ({ params }) => {
 // export const getServerSideProps = async ({ params }) => {
-  const query = `*[_type == "artists"]`;
-  const aMusicalesQuery = `*[_type == "posts" && category == "artesMusicales"]{
+  const query = `*[_type == "artists"]{
+    aVisuales,
+    aMusicales,
+    aMixtas,
+    aVisImgs{
+                    asset->{
+                        _id,
+                        url
+                    }
+                },
+    aMusImgs{
+                    asset->{
+                        _id,
+                        url
+                    }
+                },
+    aMixImgs{
+                    asset->{
+                        _id,
+                        url
+                    }
+                }
+  
+  }`;
+  const aMusicalesQuery = `*[_type == "posts" && category == "artesMusicales" && cover != "Cover"]{
     slug,
     mainImage{
                     asset->{
@@ -126,7 +165,7 @@ export const getStaticProps = async ({ params }) => {
                     }
                 }
 }`;
-  const aMixtasQuery = `*[_type == "posts" && category == "artesMixtas"]{
+  const aMixtasQuery = `*[_type == "posts" && category == "artesMixtas" && cover != "Cover"]{
     slug,
     mainImage{
                     asset->{
@@ -135,8 +174,32 @@ export const getStaticProps = async ({ params }) => {
                     }
                 }
 }`;
-  const aVisualesQuery = `*[_type == "posts" && category == "artesVisuales"]{
+  const aVisualesQuery = `*[_type == "posts" && category == "artesVisuales" && cover != "Cover"]{
     slug,
+    mainImage{
+                    asset->{
+                        _id,
+                        url
+                    }
+                }
+}`;
+  const aVisualesQueryCover = `*[_type == "posts" && category == "artesVisuales" && cover == "Cover"][0]{
+    mainImage{
+                    asset->{
+                        _id,
+                        url
+                    }
+                }
+}`;
+  const aMixtasQueryCover = `*[_type == "posts" && category == "artesMixtas" && cover == "Cover"][0]{
+    mainImage{
+                    asset->{
+                        _id,
+                        url
+                    }
+                }
+}`;
+  const aMusicalesQueryCover = `*[_type == "posts" && category == "artesMusicales" && cover == "Cover"][0]{
     mainImage{
                     asset->{
                         _id,
@@ -149,6 +212,9 @@ export const getStaticProps = async ({ params }) => {
   const aMusicalesImgs = await sanityClient.fetch(aMusicalesQuery);
   const aMixtasImgs = await sanityClient.fetch(aMixtasQuery);
   const aVisualesImgs = await sanityClient.fetch(aVisualesQuery);
+  const aMixtasCover = await sanityClient.fetch(aMixtasQueryCover);
+  const aMusicalesCover = await sanityClient.fetch(aMusicalesQueryCover);
+  const aVisualesCover = await sanityClient.fetch(aVisualesQueryCover);
 
   return {
     props: {
@@ -156,6 +222,9 @@ export const getStaticProps = async ({ params }) => {
       aMusicalesImgs,
       aMixtasImgs,
       aVisualesImgs,
+      aMixtasCover,
+      aMusicalesCover,
+      aVisualesCover
     },
   };
 };

@@ -41,8 +41,20 @@ export default function App({list}) {
         {list &&
           list.map((img, index) => (
             <SwiperSlide key={index}>
-              <Link href={"/artists/" + img.slug.current}>
-                <a>
+              {img.slug  ? (
+                <Link href={"/artists/" + img.slug.current}>
+                  <a>
+                    <Image
+                      src={img.mainImage.asset.url}
+                      alt="Art Image"
+                      width="900"
+                      height="900"
+                      key={img.mainImage.asset._id}
+                    />
+                  </a>
+                </Link>
+              ) : (
+                <div>
                   <Image
                     src={img.mainImage.asset.url}
                     alt="Art Image"
@@ -50,8 +62,8 @@ export default function App({list}) {
                     height="900"
                     key={img.mainImage.asset._id}
                   />
-                </a>
-              </Link>
+                </div>
+              )}
             </SwiperSlide>
           ))}
       </Swiper>
