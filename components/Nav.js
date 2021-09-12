@@ -71,7 +71,7 @@ const Nav = () => {
               <Link href="/getToKnowUs">
                 <a>
                   <HoverNav
-                    text={"the-team"}
+                    text={"crew"}
                     position={"text-white hover:text-yellow-600 cursor-pointer"}
                   />
                 </a>

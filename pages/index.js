@@ -144,7 +144,7 @@ const Home = ({ homeInfo }) => {
               <div className="hidden md:block">
                 <SideText sideText={JSON.stringify(about)} />
               </div>
-              <Link href="/aboutDemo">
+              <Link href="/about">
                 <a>
                   <HoverItems
                     text={"About"}
@@ -158,7 +158,7 @@ const Home = ({ homeInfo }) => {
               <Link href="/getToKnowUs">
                 <a>
                   <HoverItems
-                    text={"the-team"}
+                    text={"Crew"}
                     position={"text-white hover:text-yellow-600 cursor-pointer"}
                   />
                 </a>
@@ -177,7 +177,7 @@ const Home = ({ homeInfo }) => {
   );
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async ({ params }) => {
 // export const getServerSideProps = async ({ params }) => {
   const query = `*[_type == "home"]{
       mainImage{
