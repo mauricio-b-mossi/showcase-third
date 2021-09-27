@@ -10,7 +10,11 @@ import Members from "../components/Members"
 const getToKnowUs = ({ members, page }) => {
 
 
-  const {description, mainImage} = page;
+  const { description, mainImage } = page;
+  
+  console.log('====================================');
+  console.log(members);
+  console.log('====================================');
 
   return (
     <div>
@@ -107,7 +111,7 @@ const getToKnowUs = ({ members, page }) => {
 
 // export const getStaticProps = async ({ params }) => {
   export const getServerSideProps = async ({ params }) => {
-  const membersQuery = `*[_type == "members"]{
+  const membersQuery = `*[_type == "members"]| order(order){
     name,
     position,
     biography,

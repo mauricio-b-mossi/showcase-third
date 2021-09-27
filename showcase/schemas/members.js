@@ -4,6 +4,12 @@ export default {
   type: "document",
   fields: [
     {
+      name: "order",
+      title: "Order",
+      description: "Introductir numero en el que aparecera el miembro",
+      type: "number"
+    },
+    {
       name: "name",
       title: "Name",
       type: "string",
