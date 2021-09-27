@@ -130,8 +130,8 @@ const Index = ({
   );
 };
 
-export const getStaticProps = async ({ params }) => {
-// export const getServerSideProps = async ({ params }) => {
+// export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async ({ params }) => {
   const query = `*[_type == "artists"]{
     aVisuales,
     aMusicales,
