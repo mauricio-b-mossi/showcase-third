@@ -183,7 +183,7 @@ const AboutDemo = ({ about }) => {
               </div>
             </motion.div>
           </>
-        ) 
+        
       </div>
     </div>
   );
