@@ -9,7 +9,6 @@ import DraggableImage from "../components/DraggableImage";
 import SwipeAbout from "../components/SwipeAbout";
 
 const AboutDemo = ({ about }) => {
-
   const {
     title,
     mission,
@@ -21,7 +20,6 @@ const AboutDemo = ({ about }) => {
     mainImageVideo,
     mainImageMVR,
   } = about;
-
 
   const [isVisible, setIsVisible] = useState(true);
 
@@ -38,11 +36,12 @@ const AboutDemo = ({ about }) => {
       </Head>
 
       <div className="overflow-x-hidden">
-          <>
-            <Nav />
-            <motion.div className="min-h-screen bg-black flex flex-col items-center justify-center text-white  md:p-10 lg:p-20 font-body ">
-              <div className="relative flex justify-center bg-black items-center w-full h-screen  ">
-                {mainImage ? (
+        <>
+          <Nav />
+          <motion.div id="bg-b" className="min-h-screen  bg-black lg:bg-transparent flex flex-col items-center justify-center text-white  mx-auto font-body ">
+            <div className="relative flex justify-center  bg-black lg:bg-transparent items-center w-full h-screen  ">
+              {mainImage ? (
+                <div className="lg:hidden">
                   <Image
                     className="h-full w-full object-cover opacity-80"
                     src={mainImage.asset.url}
@@ -50,34 +49,38 @@ const AboutDemo = ({ about }) => {
                     layout="fill"
                     priority={true}
                   />
-                ) : (
-                  <Image
-                    className="h-full w-full object-cover opacity-80"
-                    src="/BWBG.jpg"
-                    alt=""
-                    layout="fill"
-                    priority={true}
-                  />
-                )}
-                <h1 className="absolute text-7xl sm:text-9xl lg:text-xxl font-bold uppercase">
-                  About
-                </h1>
-              </div>
+                </div>
+              ) : (
+                <Image
+                  className="h-full w-full object-cover opacity-80"
+                  src="/BWBG.jpg"
+                  alt=""
+                  layout="fill"
+                  priority={true}
+                />
+              )}
+              <h1 className="absolute text-7xl sm:text-9xl lg:text-xxl font-bold uppercase">
+                About
+              </h1>
+            </div>
 
-              <div className="relative flex justify-center bg-black items-center w-full py-20">
-                <div className="block md:hidden">
-                  {mainImageVideo ? (
+            <div className="relative flex-col justify-center  bg-black lg:bg-transparent items-center w-full h-auto ">
+              <div className="block md:hidden">
+                {mainImageMVR ? (
+                  <div className="md:hidden">
                     <Image
                       className="h-full w-full object-cover opacity-80"
-                      src={mainImageVideo.asset.url}
+                      src={mainImageMVR.asset.url}
                       alt=""
                       layout="fill"
                       priority={true}
                     />
-                  ) : (
-                    <div className="bg-black"></div>
-                  )}
-                </div>
+                  </div>
+                ) : (
+                  <div className= "bg-black lg:bg-transparent"></div>
+                )}
+              </div>
+              <div className="relative flex justify-center items-center w-full py-20">
                 <div className="container">
                   <iframe className="responsive-iframe" src={video}></iframe>
                 </div>
@@ -94,24 +97,23 @@ const AboutDemo = ({ about }) => {
                 </div>
               </div>
 
-              <div className="relative flex justify-center bg-black items-center w-auto h-auto  ">
-                <div className="block md:hidden">
-                  {mainImageMVR ? (
-                    <Image
-                      className="h-full w-full object-cover opacity-80"
-                      src={mainImageMVR.asset.url}
-                      alt=""
-                      layout="fill"
-                      priority={true}
-                    />
-                  ) : (
-                    <div className="bg-black"></div>
-                  )}
-                </div>
-        
-                <div className="pb-10 md:p-0">
-                  <motion.div className=" bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
-                    <h1 className="relative pt-20 block md:hidden uppercase text-center text-3xl sm:text-7xl lg:text-8xl xl:text-9xl py-4 md:py-16  font-bold">
+              <div className="md:p-10 lg:p-20">
+                <motion.div className="  bg-black lg:bg-transparent grid  md:grid-cols-2 items-center justify-center text-white font-body">
+                  <h1 className="relative pt-20 block md:hidden uppercase text-center text-3xl sm:text-7xl lg:text-8xl xl:text-9xl py-4 md:py-16  font-bold">
+                    <div>Our</div>
+                    <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
+                      Mission
+                    </div>
+                    <div className="relative transform -translate-y-4 lg:-translate-y-8 xl:-translate-y-16">
+                      {/* We? */}
+                    </div>
+                  </h1>
+                  <div className="relative flex justify-center items-center h-full w-full px-4 text-sm md:text-xl  lg:text-2xl xl:text-3xl font-thin max-w-sm md:max-w-none pb-16 md:pb-0">
+                    {/* <img src="./artsyBG.jpg" alt="" /> */}
+                    <p>{mission}</p>
+                  </div>
+                  <div className="flex flex-col justify-center items-center">
+                    <h1 className="hidden md:block relative uppercase text-center  sm:text-7xl lg:text-8xl xl:text-9xl py-16 font-bold">
                       <div>Our</div>
                       <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
                         Mission
@@ -120,41 +122,41 @@ const AboutDemo = ({ about }) => {
                         {/* We? */}
                       </div>
                     </h1>
-                    <div className="relative flex justify-center items-center h-full w-full px-4 text-sm md:text-xl  lg:text-2xl xl:text-3xl font-thin max-w-sm md:max-w-none pb-16 md:pb-0">
-                      {/* <img src="./artsyBG.jpg" alt="" /> */}
-                      <p>{mission}</p>
+                  </div>
+                </motion.div>
+                <motion.div className= "bg-black lg:bg-transparent grid  md:grid-cols-2 items-center justify-center text-white font-body">
+                  <div className="flex flex-col justify-center items-center">
+                    <h1 className="relative uppercase text-center text-3xl sm:text-7xl lg:text-8xl xl:text-9xl py-4 md:py-16 font-bold">
+                      <div>Our</div>
+                      <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
+                        Vision
+                      </div>
+                      <div className="relative transform -translate-y-4 lg:-translate-y-8 xl:-translate-y-16">
+                        {/* We? */}
+                      </div>
+                    </h1>
+                  </div>
+                  <div className="relative flex justify-center items-center h-full w-full px-4 text-sm md:text-xl  lg:text-2xl xl:text-3xl font-thin max-w-sm md:max-w-none pb-16 md:pb-0">
+                    {/* <img src="./artsyBG.jpg" alt="" /> */}
+                    <p>{vision}</p>
+                  </div>
+                </motion.div>
+                <motion.div className="  bg-black lg:bg-transparent grid  md:grid-cols-2 items-center justify-center text-white font-body">
+                  <h1 className="relative block md:hidden uppercase text-center text-3xl sm:text-7xl lg:text-8xl xl:text-9xl py-4 md:py-16 font-bold">
+                    <div>Couple</div>
+                    <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
+                      Reasons
                     </div>
-                    <div className="flex flex-col justify-center items-center">
-                      <h1 className="hidden md:block relative uppercase text-center  sm:text-7xl lg:text-8xl xl:text-9xl py-16 font-bold">
-                        <div>Our</div>
-                        <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
-                          Mission
-                        </div>
-                        <div className="relative transform -translate-y-4 lg:-translate-y-8 xl:-translate-y-16">
-                          {/* We? */}
-                        </div>
-                      </h1>
+                    <div className="relative transform -translate-y-4 lg:-translate-y-8 xl:-translate-y-16">
+                      {/* We? */}
                     </div>
-                  </motion.div>
-                  <motion.div className="bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
-                    <div className="flex flex-col justify-center items-center">
-                      <h1 className="relative uppercase text-center text-3xl sm:text-7xl lg:text-8xl xl:text-9xl py-4 md:py-16 font-bold">
-                        <div>Our</div>
-                        <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
-                          Vision
-                        </div>
-                        <div className="relative transform -translate-y-4 lg:-translate-y-8 xl:-translate-y-16">
-                          {/* We? */}
-                        </div>
-                      </h1>
-                    </div>
-                    <div className="relative flex justify-center items-center h-full w-full px-4 text-sm md:text-xl  lg:text-2xl xl:text-3xl font-thin max-w-sm md:max-w-none pb-16 md:pb-0">
-                      {/* <img src="./artsyBG.jpg" alt="" /> */}
-                      <p>{vision}</p>
-                    </div>
-                  </motion.div>
-                  <motion.div className=" bg-black grid  md:grid-cols-2 items-center justify-center text-white font-body">
-                    <h1 className="relative block md:hidden uppercase text-center text-3xl sm:text-7xl lg:text-8xl xl:text-9xl py-4 md:py-16 font-bold">
+                  </h1>
+                  <div className="relative flex justify-center items-center h-full w-full px-4 text-sm md:text-xl  lg:text-2xl xl:text-3xl font-thin max-w-sm md:max-w-none pb-16 md:pb-0">
+                    {/* <img src="./artsyBG.jpg" alt="" /> */}
+                    <p>{reasons}</p>
+                  </div>
+                  <div className="flex flex-col justify-center items-center">
+                    <h1 className="hidden md:block relative uppercase text-center  sm:text-7xl lg:text-8xl xl:text-9xl py-16 font-bold">
                       <div>Couple</div>
                       <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
                         Reasons
@@ -163,34 +165,21 @@ const AboutDemo = ({ about }) => {
                         {/* We? */}
                       </div>
                     </h1>
-                    <div className="relative flex justify-center items-center h-full w-full px-4 text-sm md:text-xl  lg:text-2xl xl:text-3xl font-thin max-w-sm md:max-w-none pb-16 md:pb-0">
-                      {/* <img src="./artsyBG.jpg" alt="" /> */}
-                      <p>{reasons}</p>
-                    </div>
-                    <div className="flex flex-col justify-center items-center">
-                      <h1 className="hidden md:block relative uppercase text-center  sm:text-7xl lg:text-8xl xl:text-9xl py-16 font-bold">
-                        <div>Couple</div>
-                        <div className="relative transform -translate-y-2 lg:-translate-y-4 xl:-translate-y-8">
-                          Reasons
-                        </div>
-                        <div className="relative transform -translate-y-4 lg:-translate-y-8 xl:-translate-y-16">
-                          {/* We? */}
-                        </div>
-                      </h1>
-                    </div>
-                  </motion.div>
-                </div>
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
-          </>
-        
+              {/*  */}
+            </div>
+            {/* </i> */}
+          </motion.div>
+        </>
       </div>
     </div>
   );
 };
 
 export const getStaticProps = async ({ params }) => {
-// export const getServerSideProps = async ({ params }) => {
+  // export const getServerSideProps = async ({ params }) => {
   const query = `*[_type == "aboutUs"][0]{
     title,
     mainImage{
@@ -223,7 +212,6 @@ export const getStaticProps = async ({ params }) => {
   },
 
   }`;
-
 
   const about = await sanityClient.fetch(query);
 

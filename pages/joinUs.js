@@ -18,7 +18,6 @@ const JoinUs = ({descriptionInfo}) => {
   function AnimationEnds() {
     setIsVisible(true);
   }
-
   return (
     <div>
       <Head>

@@ -27,16 +27,9 @@ const Index = ({
 
   const { aMixtas, aMusicales, aVisuales} = artistsInfo[0];
 
-  // const defactor = aMusicalesCover.filter((img)=>img.mainImage)
-
   const aMusicalesImgsSlide = [aMusicalesCover, ...aMusicalesImgs];
   const aMixtasImgsSlide = [ aMixtasCover, ...aMixtasImgs ];
   const aVisualesImgsSlide = [aVisualesCover, ...aVisualesImgs];
-  
-  console.log('====================================');
-  console.log(aMusicalesImgsSlide);
-  console.log('====================================');
-
 
   return (
     <div>
