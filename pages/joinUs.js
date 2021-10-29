@@ -187,7 +187,8 @@ const JoinUs = ({descriptionInfo}) => {
   );
 };
 
-export const getServerSideProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
+// export const getServerSideProps = async ({ params }) => {
 // export const getServerSideProps = async ({ params }) => {
   const query = `*[_type == "joinUs"][0]{
     title,
