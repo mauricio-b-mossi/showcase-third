@@ -75,7 +75,7 @@ const getToKnowUs = ({ members, page }) => {
             </div>
           </div>
           {/* Team description */}
-          <div className="px-10">
+          {/* <div className="px-10">
             <div className="relative flex justify-center items-center text-center pb-10 md:text-xl text-md uppercase font-bold ">
               <div className="max-w-5xl">
                 <h3>
@@ -85,7 +85,7 @@ const getToKnowUs = ({ members, page }) => {
                 </h3>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* Members */}
           <div className="relative flex flex-col justify-center items-center md:flex-row">
             <AnimateSharedLayout>
@@ -109,8 +109,8 @@ const getToKnowUs = ({ members, page }) => {
   );
 };
 
-// export const getStaticProps = async ({ params }) => {
-  export const getServerSideProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
+  // export const getServerSideProps = async ({ params }) => {
   const membersQuery = `*[_type == "members"]| order(order){
     name,
     position,
@@ -123,7 +123,7 @@ const getToKnowUs = ({ members, page }) => {
                 },
   }`;
   const pageQuery = `*[_type == "team"][0]{
-    description,
+ 
     mainImage{
                     asset->{
                         _id,
@@ -132,10 +132,10 @@ const getToKnowUs = ({ members, page }) => {
                 },
   }`;
 
- 
+  //    description,
 
   const members = await sanityClient.fetch(membersQuery);
-  const page = await sanityClient.fetch(pageQuery)
+  const page = await sanityClient.fetch(pageQuery);
 
   return {
     props: {
