@@ -11,10 +11,6 @@ const getToKnowUs = ({ members, page }) => {
 
 
   const { description, mainImage } = page;
-  
-  console.log('====================================');
-  console.log(members);
-  console.log('====================================');
 
   return (
     <div>
