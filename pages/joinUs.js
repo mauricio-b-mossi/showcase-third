@@ -9,25 +9,15 @@ import BackgroundComponent from "../components/BackgroundComponent";
 import SEOComponent from "../components/SEOComponent";
 
 const JoinUs = ({descriptionInfo}) => {
-  // controls wether view is shown
-  const [isVisible, setIsVisible] = useState(true);
-
 
   const { title, mainImage, description, descriptionTitle, video } = descriptionInfo
   
   const splitTitle = title.split(" ")
 
-  function AnimationEnds() {
-    setIsVisible(true);
-  }
   return (
     <div>
       <SEOComponent title={"Join Us"} />
       <div className="overflow-x-hidden">
-        {/* <Slider trigger={AnimationEnds} /> */}
-        {isVisible ? (
-          <>
-            <div>
               <Nav />
 
               <BackgroundComponent image={mainImage.asset.url} />
@@ -40,13 +30,6 @@ const JoinUs = ({descriptionInfo}) => {
                 />
                 <VideoSectionContainer video={video} />
               </div>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="min-h-screen bg-black"></div>
-          </>
-        )}
       </div>
     </div>
   );

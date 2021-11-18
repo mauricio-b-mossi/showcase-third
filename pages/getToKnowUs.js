@@ -17,10 +17,8 @@ const getToKnowUs = ({ members, page }) => {
       
       <div className="overflow-x-hidden">
 
-        <div>
           <Nav />
           <BackgroundComponent image={mainImage.asset.url} />
-        </div>
 
         <div className="max-h-screen bg-black  items-center justify-center text-white font-body">
 

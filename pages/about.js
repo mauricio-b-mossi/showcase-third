@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import Nav from "../components/Nav";
-import Head from "next/head";
-import Image from "next/image";
-import Slider from "../components/Slider";
 import { motion } from "framer-motion";
 import { sanityClient } from "../sanity";
 import SwipeAbout from "../components/SwipeAbout";
@@ -22,12 +19,6 @@ const AboutDemo = ({ about }) => {
     mainImageVideo,
     mainImageMVR,
   } = about;
-
-  const [isVisible, setIsVisible] = useState(true);
-
-  function AnimationEnds() {
-    setIsVisible(true);
-  }
 
   return (
     <div>
@@ -58,19 +49,6 @@ const AboutDemo = ({ about }) => {
             <div className="relative flex-col justify-center  bg-black lg:bg-transparent items-center w-full h-auto ">
               <div className="block md:hidden">
                 <div className="bg-black lg:bg-transparent"></div>
-                {/* {mainImageMVR ? (
-                  <div className="md:hidden">
-                    <Image
-                      className="h-full w-full object-cover opacity-80"
-                      src={mainImageMVR.asset.url}
-                      alt=""
-                      layout="fill"
-                      priority={true}
-                    />
-                  </div>
-                ) : (
-                  <div className="bg-black lg:bg-transparent"></div>
-                )} */}
               </div>
               <div className="relative flex justify-center items-center w-full py-20">
                 <div className="container">
