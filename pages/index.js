@@ -21,7 +21,7 @@ const Home = ({ homeInfo }) => {
   const { mainImage, home, artists, joinus, about, team } = homeInfo[0];
 
   return (
-    <div>
+    <>
       <SEOComponent title={"Home"} />
       <Anim intro={intro} />
       <MobileBackground image={mainImage.asset.url} />
@@ -41,7 +41,7 @@ const Home = ({ homeInfo }) => {
           src={"/insta.webp"}
         />
       </motion.div>
-    </div>
+    </>
   );
 };
 

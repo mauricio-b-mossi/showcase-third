@@ -15,7 +15,7 @@ const JoinUs = ({descriptionInfo}) => {
   const splitTitle = title.split(" ")
 
   return (
-    <div>
+    <>
       <SEOComponent title={"Join Us"} />
       <div className="overflow-x-hidden">
               <Nav />
@@ -31,7 +31,7 @@ const JoinUs = ({descriptionInfo}) => {
                 <VideoSectionContainer video={video} />
               </div>
       </div>
-    </div>
+    </>
   );
 };
 

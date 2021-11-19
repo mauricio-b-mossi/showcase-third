@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Nav from "../components/Nav";
-import Slider from "../components/Slider";
 import { sanityClient } from "../sanity";
 import MeetTheTeamTitle from "../components/MeetTheTeamTitle";
 import BackgroundComponent from "../components/BackgroundComponent";
@@ -12,7 +11,7 @@ const getToKnowUs = ({ members, page }) => {
   const { description, mainImage } = page;
 
   return (
-    <div>
+    <>
       <SEOComponent title={"Meet Out Crew"} />
       
       <div className="overflow-x-hidden">
@@ -28,7 +27,7 @@ const getToKnowUs = ({ members, page }) => {
           
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
