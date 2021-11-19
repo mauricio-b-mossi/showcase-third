@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Nav from "../components/Nav";
-import Head from "next/head";
-import Slider from "../components/Slider";
 import { sanityClient } from "../sanity";
 import JoinUsTitle from "../components/JoinUsTitle";
 import VideoSectionContainer from "../components/VideoSectionContainer";
