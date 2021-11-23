@@ -7,15 +7,19 @@ import SEOComponent from "../../components/SEOComponent";
 
 const Slug = (props) => {
 
-  const list = [props.slugInfo.mainImage, ...props.slugInfo.images]
-  const title = props.slugInfo.title
-  const description = props.slugInfo.description
+  // Destructuring Query into different portions
+  // list: Merging mainImage and images array
+  const list = [props.slugInfo.mainImage, ...props.slugInfo.images];
+  const title = props.slugInfo.title;
+  const description = props.slugInfo.description;
 
   return (
     <>
-      <SEOComponent title={ title }/>
+      {/* Page Meta data */}
+      <SEOComponent title={title} />
+      {/* Artist display component: accepts title, description, and images */}
       <ArtistComponent title={title} description={description} images={list} />
-      </>
+    </>
   );
 };
 

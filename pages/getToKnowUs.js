@@ -8,23 +8,30 @@ import SEOComponent from "../components/SEOComponent";
 
 
 const getToKnowUs = ({ members, page }) => {
+
+  // Destructuring Query into different portions
   const { description, mainImage } = page;
 
   return (
     <>
+      {/* Page Meta data */}
       <SEOComponent title={"Meet Out Crew"} />
-      
-      <div className="overflow-x-hidden">
 
-          <Nav />
-          <BackgroundComponent image={mainImage.asset.url} />
+      {/* Whole page wrapper div */}
+      <div className="overflow-x-hidden">
+        {/* Navigation Bar Component */}
+        <Nav />
+
+        {/* Background image setter component */}
+        <BackgroundComponent image={mainImage.asset.url} />
 
         <div className="max-h-screen bg-black  items-center justify-center text-white font-body">
 
+          {/* Meet The Team title Component */}
           <MeetTheTeamTitle />
 
+          {/* Member Iterator Component: accepts list of members*/}
           <MemberIteratorComponent members={members} />
-          
         </div>
       </div>
     </>

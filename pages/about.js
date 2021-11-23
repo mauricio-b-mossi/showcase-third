@@ -10,6 +10,8 @@ import TextTitleRightComponent from "../components/TextTitleRightComponent";
 import TextTitleLeftComponent from "../components/TextTitleLeftComponent";
 
 const AboutDemo = ({ about }) => {
+
+  // Destructuring Query into different portions
   const {
     title,
     mission,
@@ -23,16 +25,22 @@ const AboutDemo = ({ about }) => {
   } = about;
 
   return (
-    <div>
+    <>
+      {/* Page Meta data */}
       <SEOComponent title={"About"} />
 
       <div className="overflow-x-hidden">
         <Nav />
+
+        {/* Wrapper component which displays the background id="bg-b" on large screen and above */}
         <div
           id="bg-b"
           className="min-h-screen  bg-black lg:bg-transparent flex flex-col items-center justify-center text-white  mx-auto font-body "
         >
+          {/* Hero image component */}
+          {/* The image is hidden in large screens and above to avoid blur*/}
           <div className="relative flex justify-center  bg-black lg:bg-transparent items-center w-full h-screen  ">
+            {/* Conditionally rendering fetched image if any. Else display /BWBG.jpg*/}
             {mainImage.asset.url ? (
               <div className="lg:hidden">
                 <BgImage image={mainImage.asset.url} />
@@ -42,22 +50,28 @@ const AboutDemo = ({ about }) => {
                 <BgImage image={"/BWBG.jpg"} />
               </div>
             )}
+
+            {/* Title in the center of Hero image */}
             <h1 className="absolute text-7xl sm:text-9xl lg:text-xxl font-bold uppercase">
               About
             </h1>
           </div>
 
+          {/* Information segment Wrapper */}
           <div className="relative flex-col justify-center  bg-black lg:bg-transparent items-center w-full h-auto ">
+
+            {/* Youtube Individual Video Component: accepts Video url prop */}
             <Video video={video} />
 
+            {/* Draggable image slider: accepts 3 props leftText, rightText, and the images*/}
             <FlowImageComponent
               leftText={"swipe swipe swipe"}
               rightText={"swipe swipe swipe"}
               images={images}
             />
 
+            {/* Information Components: accept title and description props */}
             <div className="md:p-10 lg:p-20">
-
               <TextTitleRightComponent
                 title={"Our Mission"}
                 description={mission}
@@ -72,12 +86,11 @@ const AboutDemo = ({ about }) => {
                 title={"Couple Reasons"}
                 description={reasons}
               />
-              
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

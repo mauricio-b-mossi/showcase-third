@@ -10,37 +10,50 @@ import HomeLinkRight from "../components/HomeLinkRight";
 import HomeLinkLeft from "../components/HomeLinkLeft";
 
 const Home = ({ homeInfo }) => {
+  // While intro is True the body of the page will be hidden
   const [intro, setIntro] = useState(true);
 
+  // React hook that sets Into to false after 3 seconds/the duration of the animation
   useEffect(() => {
     setTimeout(() => {
       setIntro(false);
     }, 3000);
   }, []);
 
+  // Destructuring Query into different portions
   const { mainImage, home, artists, joinus, about, team } = homeInfo[0];
 
   return (
     <>
+      {/* Page Meta data */}
       <SEOComponent title={"Home"} />
+
+      {/* Anim accepts the intro prop which is a boolean.*/}
       <Anim intro={intro} />
+
+      {/* Mobile background image component */}
       <MobileBackground image={mainImage.asset.url} />
 
-      <motion.div className=" font-body text-7xl min-h-screen flex flex-col items-center  justify-center uppercase  relative overflow-hidden ">
-        
+      {/* Body Wrapper div */}
+      <div className=" font-body text-7xl min-h-screen flex flex-col items-center  justify-center uppercase  relative overflow-hidden ">
+        {/* Showcase Logo in the corner */}
         <CornerLogo />
 
+        {/* All the individual link components */}
+        {/* They accept 3 props: The title, the link description text, and the route */}
         <HomeLinkRight title={"Home"} text={home} href={"/"} />
         <HomeLinkLeft title={"Artists"} text={artists} href={"/artists"} />
         <HomeLinkRight title={"Join-us"} text={joinus} href={"/joinUs"} />
         <HomeLinkLeft title={"About"} text={about} href={"/about"} />
         <HomeLinkRight title={"Crew"} text={team} href={"/getToKnowUs"} />
 
+        {/* Social icon component at the bottom of the homescreen */}
+        {/* It accepts 2 props: The link to the social media, and the icon */}
         <SocialIcon
           href={"https://www.instagram.com/showcase.sv/"}
-          src={"/insta.webp"}
+          image={"/insta.webp"}
         />
-      </motion.div>
+      </div>
     </>
   );
 };
