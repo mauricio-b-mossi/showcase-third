@@ -41,28 +41,29 @@ export default function App({list}) {
         {list &&
           list.map((img, index) => (
             <SwiperSlide key={index}>
-              {img.slug  ? (
-                <Link href={"/artists/" + img.slug.current}>
+              {img.slug && (
+                <Link href={img ? "/artists/" + img.slug.current : '/artists'}>
                   <a>
                     <Image
-                      src={img.mainImage.asset.url}
+                      src={img ? img.mainImage.asset.url : "/artsyBG.jpg"}
                       alt="Art Image"
                       width="900"
                       height="900"
-                      key={img.mainImage.asset._id}
+                      key={img ? img.mainImage.asset._id : Math.floor(Math.random() * 100)}
                     />
                   </a>
                 </Link>
-              ) : (
-                <div>
-                  <Image
-                    src={img.mainImage.asset.url}
-                    alt="Art Image"
-                    width="900"
-                    height="900"
-                    key={img.mainImage.asset._id}
-                  />
-                </div>
+              // ) : (
+              //   <div>
+              //     <Image
+              //       src={img.mainImage.asset.url}
+              //       alt="Art Image"
+              //       width="900"
+              //       height="900"
+              //       key={img.mainImage.asset._id}
+              //     />
+              //   </div>
+              // )
               )}
             </SwiperSlide>
           ))}
