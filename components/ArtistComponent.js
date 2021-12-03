@@ -18,7 +18,7 @@ export default function ArtistComponent({title, description, images}) {
   };
 
     return (
-      <div className="max-h-screen md:min-h-screen bg-black flex flex-col items-center justify-center text-white font-body py-20 sm:p-10 lg:p-20">
+      <div className="min-h-screen md:min-h-screen bg-black flex flex-col items-center justify-center text-white font-body py-20 sm:p-10 lg:p-20">
         <div className="grid md:grid-cols-2 min-h-screen justify-center items-center ">
           <div className="flex flex-col justify-center items-center">
             <h1 className="uppercase text-center text-5xl lg:text-7xl  py-4 md:py-16 font-bold">
