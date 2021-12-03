@@ -53,17 +53,17 @@ export default function App({list}) {
                     />
                   </a>
                 </Link>
-              // ) : (
-              //   <div>
-              //     <Image
-              //       src={img.mainImage.asset.url}
-              //       alt="Art Image"
-              //       width="900"
-              //       height="900"
-              //       key={img.mainImage.asset._id}
-              //     />
-              //   </div>
-              // )
+                // ) : (
+                //   <div>
+                //     <Image
+                //       src={img.mainImage.asset.url}
+                //       alt="Art Image"
+                //       width="900"
+                //       height="900"
+                //       key={img.mainImage.asset._id}
+                //     />
+                //   </div>
+                // )
               )}
             </SwiperSlide>
           ))}
