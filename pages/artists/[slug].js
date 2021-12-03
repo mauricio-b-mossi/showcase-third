@@ -9,7 +9,13 @@ const Slug = (props) => {
 
   // Destructuring Query into different portions
   // list: Merging mainImage and images array
-  const list = [props.slugInfo.mainImage, ...props.slugInfo.images];
+  //           images[]{
+  //    asset->{
+  //                       _id,
+  //                       url
+  //                   }
+  // },
+  const list = [props.slugInfo.mainImage];
   const title = props.slugInfo.title;
   const description = props.slugInfo.description;
 
@@ -34,12 +40,7 @@ export const getServerSideProps = async (context) => {
     *[slug.current == $slug][0]{
       title,
       description,
-          images[]{
-     asset->{
-                        _id,
-                        url
-                    }
-  },
+
           mainImage{
                     asset->{
                         _id,
