@@ -7,11 +7,12 @@ export default function ArtistComponent({title, description, images}) {
 
     const serializers = {
     types: {
-      code: (props) => (
-        <pre data-language={props.node.language}>
-          <code>{props.node.code}</code>
-        </pre>
-      ),
+        code: function loader(props) {
+        return(
+          <pre data-language={props.node.language}>
+            <code>{props.node.code}</code>
+          </pre>)
+        },
     },
   };
 
