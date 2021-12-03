@@ -23,13 +23,13 @@ export default function ArtistComponent({title, description, images}) {
               <div>{title}</div>
             </h1>
             <div className="max-w-lg relative transform -translate-y-4 lg:-translate-y-8 2xl:-translate-y-16 text-center py-8 md:py-0 text-xl md:text-2xl">
-              {/* <BlockContent
+              <BlockContent
                 blocks={description}
                 serializers={serializers}
                 imageOptions={{ fit: "max" }}
                 projectId={sanityClient.clientConfig.projectId}
                 dataset={sanityClient.clientConfig.dataset}
-              /> */}
+              />
             </div>
           </div>
           <div className="pb-16 md:pb-0">
