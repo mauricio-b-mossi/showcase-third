@@ -19,7 +19,7 @@ export default function RightSwiperText({ title, description, images }) {
         </div>
       </div>
       <div className="pb-16 lg:pb-0">
-        <Swiper list={images} />
+        <Swiper list={images.slice(1)} />
       </div>
     </>
   );

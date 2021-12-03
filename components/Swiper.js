@@ -63,8 +63,8 @@ export default function App({list}) {
                 //       key={img.mainImage.asset._id}
                 //     />
                 //   </div>
-                // )
-              )}
+                )
+              }
             </SwiperSlide>
           ))}
       </Swiper>

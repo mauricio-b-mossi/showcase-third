@@ -7,7 +7,7 @@ export default function LeftSwiperText({ title, description, images }) {
   return (
     <>
       <div className="hidden lg:block">
-        <Swiper list={images} />
+        <Swiper list={images.slice(1)} />
       </div>
       <div className="flex flex-col justify-center items-center">
         <h1 className="uppercase text-center text-5xl sm:text-7xl  2xl:text-9xl py-4 lg:py-16 font-bold">
@@ -21,7 +21,7 @@ export default function LeftSwiperText({ title, description, images }) {
         </div>
       </div>
       <div className="block lg:hidden pb-16">
-        <Swiper list={images} />
+        <Swiper list={images.slice(1)} />
       </div>
     </>
   );
