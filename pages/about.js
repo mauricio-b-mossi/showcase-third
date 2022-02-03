@@ -2,8 +2,6 @@ import React from "react";
 import Nav from "../components/Nav";
 import { sanityClient } from "../sanity";
 import SEOComponent from "../components/SEOComponent";
-import BgImage from "../components/BgImage";
-import BackgroundComponent from "../components/BackgroundComponent";
 import FlowImageComponent from "../components/FlowImageComponent";
 import Video from "../components/Video";
 import TextTitleRightComponent from "../components/TextTitleRightComponent";
