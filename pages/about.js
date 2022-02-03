@@ -6,6 +6,7 @@ import FlowImageComponent from "../components/FlowImageComponent";
 import Video from "../components/Video";
 import TextTitleRightComponent from "../components/TextTitleRightComponent";
 import TextTitleLeftComponent from "../components/TextTitleLeftComponent";
+import BackgroundImage from "../components/BackgroundImage";
 
 // Page receives a props object with the following properties:
 // - about : which contains the mission, vision, reasons,
