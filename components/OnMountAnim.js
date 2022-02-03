@@ -40,20 +40,21 @@ const imageAnim = {
   },
 };
 
+// Component accepts a props object with the following properties:
+//  - intro : the intro is a boolean that determines whether the intro
+//            animation should be played
 const Anim = ({ intro }) => {
-
   // Handles internal state to see wether it animates for Small or large screens
-  const [isSmall, setIsSmall] = useState(false)
+  const [isSmall, setIsSmall] = useState(false);
 
   // Function calculates window width on page load
   useEffect(() => {
     if (window.innerWidth >= 640) {
-      setIsSmall(true)
+      setIsSmall(false);
+    } else {
+      setIsSmall(true);
     }
-    else {
-      setIsSmall(false)
-    }
-  }, [])
+  }, []);
 
   return (
     // Component from FRAMERMOTION library
@@ -62,7 +63,10 @@ const Anim = ({ intro }) => {
       {/* REMEMBER: intro is a boolean passed as a prop */}
       {intro && (
         <div className="absolute h-full w-full inset-0 z-10">
-          <div className="font-body text-5xl sm:text-9xl  min-h-screen bg-black text-white flex flex-col items-center justify-center uppercase">
+          <div
+            className="font-body text-5xl   min-h-screen bg-black text-white 
+          flex flex-col items-center justify-center uppercase"
+          >
             <motion.div
               className="min-h-screen flex flex-col items-center justify-center"
               variants={parentAnim}
@@ -84,7 +88,7 @@ const Anim = ({ intro }) => {
               </motion.div>
 
               {/* Contitionally renders the image based on the screen size*/}
-              {isSmall ? (
+              {/* {isSmall ? (
                 <motion.div
                   className="absolute h-img-h w-img-w"
                   variants={imageAnim}
@@ -106,30 +110,42 @@ const Anim = ({ intro }) => {
                     objectFit="contain"
                   />
                 </motion.div>
-              ) : (
-                <motion.div
-                  className="absolute h-img-h-sm w-img-w-sm"
-                  variants={imageAnim}
-                  // Animates the image on EXIT to the absolute position
-                  exit={{
-                    top: "16px",
-                    left: "16px",
-                    height: "80px",
-                    width: "80px",
-                    transition: {
-                      duration: 2,
-                    },
-                  }}
-                >
-                  <Image
-                    src="/showcase.webp"
-                    alt=""
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                </motion.div>
-              )}
+              ) : ( */}
+              <motion.div
+                className="absolute h-img-h-sm w-img-w-sm"
+                variants={imageAnim}
+                // Animates the image on EXIT to the absolute position
 
+                exit={
+                  isSmall
+                    ? {
+                        top: "16px",
+                        left: "16px",
+                        height: "80px",
+                        width: "80px",
+                        transition: {
+                          duration: 2,
+                        },
+                      }
+                    : {
+                        top: "48px",
+                        left: "48px",
+                        height: "96px",
+                        width: "96px",
+                        transition: {
+                          duration: 2,
+                        },
+                      }
+                }
+              >
+                <Image
+                  src="/showcase.webp"
+                  alt=""
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </motion.div>
+              {/* )} */}
             </motion.div>
           </div>
         </div>

@@ -6,11 +6,13 @@ import BackgroundComponent from "../components/BackgroundComponent";
 import MemberIteratorComponent from "../components/MemberIteratorComponent";
 import SEOComponent from "../components/SEOComponent";
 
-
+// Page receives a props object with the following properties:
+// - members : contains all the members of the team.
+// - page : contains the information about the page. 
 const getToKnowUs = ({ members, page }) => {
 
   // Destructuring Query into different portions
-  const { description, mainImage } = page;
+  const { mainImage } = page;
 
   return (
     <>
@@ -38,7 +40,7 @@ const getToKnowUs = ({ members, page }) => {
   );
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async () => {
   const membersQuery = `*[_type == "members"]| order(order){
     name,
     position,
@@ -59,8 +61,6 @@ export const getStaticProps = async ({ params }) => {
                     }
                 },
   }`;
-
-  //    description,
 
   const members = await sanityClient.fetch(membersQuery);
   const page = await sanityClient.fetch(pageQuery);

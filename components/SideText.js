@@ -1,6 +1,7 @@
 import React from "react";
-import { motion, useCycle } from "framer-motion";
+import { motion } from "framer-motion";
 
+// Declaring animations:
 const parent = {
   animate: {
     transition: {
@@ -16,20 +17,23 @@ const letterUp = {
   },
 };
 
+// Component accepts a props object with the following properties:
+// - sideText: the text to be shown in the side of the landing page links
 const SideText = ({ sideText }) => {
   return (
     <motion.div
       variants={parent}
       initial="initial"
       animate="animate"
-      // md:text-xs
       className="text-xxs md:text-xms   text-white ml-8 max-w-small-box"
     >
+      {/* Separates sideText into letters <motion.span/> */}
       {[...sideText].map((letter, key) => (
         <motion.span variants={letterUp} key={key}>
           {letter}
         </motion.span>
       ))}
+      
     </motion.div>
   );
 };

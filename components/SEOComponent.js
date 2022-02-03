@@ -1,6 +1,8 @@
 import React from 'react'
 import Head from "next/head";
 
+// Component accepts a props object with the following properties:
+// - title: the title of the page to be shown in the browser tab
 export default function SEOComponent({title}) {
     return (
       <Head>

@@ -35,7 +35,6 @@ const Slider = ({ trigger }) => {
                 type: "tween",
               },
             }}
-            // className="min-h-screen bg-black flex flex-col justify-center items-center"
           >
         
               <Image

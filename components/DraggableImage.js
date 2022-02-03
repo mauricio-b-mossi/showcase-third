@@ -1,8 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-// "h-96 w-60 object-cover"
-const DraggableImage = ({src, style, alt }) => {
+// Component accepts a props object with the following properties:
+// - src: the url of the image
+// - style: the style of the image
+// - alt: the alt text of the image
+const DraggableImage = ({ src, style, alt }) => {
   return (
     <div >
       <motion.img

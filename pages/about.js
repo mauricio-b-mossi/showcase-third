@@ -9,19 +9,19 @@ import Video from "../components/Video";
 import TextTitleRightComponent from "../components/TextTitleRightComponent";
 import TextTitleLeftComponent from "../components/TextTitleLeftComponent";
 
+// Page receives a props object with the following properties:
+// - about : which contains the mission, vision, reasons,
+//            video, images, and mainImage of the page
 const AboutDemo = ({ about }) => {
 
-  // Destructuring Query into different portions
+  // Destructuring about into different portions
   const {
-    title,
     mission,
     vision,
     reasons,
     video,
     images,
     mainImage,
-    mainImageVideo,
-    mainImageMVR,
   } = about;
 
   return (
@@ -32,15 +32,21 @@ const AboutDemo = ({ about }) => {
       <div className="overflow-x-hidden">
         <Nav />
 
-        {/* Wrapper component which displays the background id="bg-b" on large screen and above */}
+        {/* Wrapper component which displays 
+        the background id="bg-b" on large screen and above */}
         <div
           id="bg-b"
-          className="min-h-screen  bg-black lg:bg-transparent flex flex-col items-center justify-center text-white  mx-auto font-body "
+          className="min-h-screen  bg-black lg:bg-transparent 
+          flex flex-col items-center justify-center text-white 
+          mx-auto font-body "
         >
           {/* Hero image component */}
-          {/* The image is hidden in large screens and above to avoid blur*/}
-          <div className="relative flex justify-center  bg-black lg:bg-transparent items-center w-full h-screen  ">
-            {/* Conditionally rendering fetched image if any. Else display /BWBG.jpg*/}
+          {/* The image is hidden in large screens and above to 
+          avoid blur*/}
+          <div className="relative flex justify-center  bg-black
+           lg:bg-transparent items-center w-full h-screen  ">
+            {/* Conditionally rendering fetched image if any. 
+            Else display /BWBG.jpg*/}
             {mainImage.asset.url ? (
               <div className="lg:hidden">
                 <BgImage image={mainImage.asset.url} />
@@ -52,18 +58,21 @@ const AboutDemo = ({ about }) => {
             )}
 
             {/* Title in the center of Hero image */}
-            <h1 className="absolute text-7xl sm:text-9xl lg:text-xxl font-bold uppercase">
+            <h1 className="absolute text-7xl sm:text-9xl lg:text-xxl
+             font-bold uppercase">
               About
             </h1>
           </div>
 
           {/* Information segment Wrapper */}
-          <div className="relative flex-col justify-center  bg-black lg:bg-transparent items-center w-full h-auto ">
+          <div className="relative flex-col justify-center bg-black
+          lg:bg-transparent items-center w-full h-auto ">
 
             {/* Youtube Individual Video Component: accepts Video url prop */}
             <Video video={video} />
 
-            {/* Draggable image slider: accepts 3 props leftText, rightText, and the images*/}
+            {/* Draggable image slider: accepts 3 props leftText, 
+            rightText, and the images*/}
             <FlowImageComponent
               leftText={"swipe swipe swipe"}
               rightText={"swipe swipe swipe"}
@@ -94,8 +103,7 @@ const AboutDemo = ({ about }) => {
   );
 };
 
-export const getStaticProps = async ({ params }) => {
-  // export const getServerSideProps = async ({ params }) => {
+export const getStaticProps = async () => {
   const query = `*[_type == "aboutUs"][0]{
     title,
     mainImage{
@@ -126,7 +134,6 @@ export const getStaticProps = async ({ params }) => {
                         url
                     }
   },
-
   }`;
 
   const about = await sanityClient.fetch(query);

@@ -1,7 +1,8 @@
 import React from 'react'
-import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import { motion} from "framer-motion";
 
-
+// Component accepts a props object with the following properties:
+// - text : the text that will be displayed on the animation
 const Content = ({text}) => {
    
       return (
@@ -11,7 +12,6 @@ const Content = ({text}) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          {/* This is the text */}
           <div className="max-w-lg text-center text-base md:text-xl">
             {text}
           </div>

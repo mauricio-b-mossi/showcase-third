@@ -1,21 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import HoverNav from "./HoverNav";
 import Image from "next/image";
 
-// name changed
 
 const Nav = () => {
-  // mejor solucion animarle
-  const [showTime, setshowTime] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setshowTime(true);
-    }, 3000);
-  }, []);
-
-  // changes
 
   return (
     <>
@@ -25,7 +14,7 @@ const Nav = () => {
             <Link href="/">
               <div className="fixed h-20 w-20 top-4 left-4 sm:h-24 sm:w-24 sm:top-12 sm:left-12  cursor-pointer">
                 <a>
-                  {/* objectFit='contain' */}
+                  {/* Main logo */}
                   <Image
                     src="/showcase.webp"
                     alt=""
@@ -36,6 +25,7 @@ const Nav = () => {
               </div>
             </Link>
             <div className="text-white text-sm font-normal fixed h-24 w-40 top-4 right-6 flex flex-col justify-center items-end">
+              {/* Home nav item */}
               <Link href="/">
                 <a>
                   <HoverNav
@@ -44,6 +34,7 @@ const Nav = () => {
                   />
                 </a>
               </Link>
+              {/* Artists nav item */}
               <Link href="/artists">
                 <a>
                   <HoverNav
@@ -52,6 +43,7 @@ const Nav = () => {
                   />
                 </a>
               </Link>
+              {/* JoinUs nav item */}
               <Link href="/joinUs">
                 <a>
                   <HoverNav
@@ -60,6 +52,7 @@ const Nav = () => {
                   />
                 </a>
               </Link>
+              {/* About nav item */}
               <Link href="/about">
                 <a>
                   <HoverNav
@@ -68,6 +61,7 @@ const Nav = () => {
                   />
                 </a>
               </Link>
+              {/* Crew nav item */}
               <Link href="/getToKnowUs">
                 <a>
                   <HoverNav

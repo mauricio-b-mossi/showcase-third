@@ -5,6 +5,15 @@ import SEOComponent from "../../components/SEOComponent";
 import LeftSwiperText from "../../components/LeftSwiperText";
 import RightSwiperText from "../../components/RightSwiperText";
 
+// Page receives a props object with the following properties:
+// - props : represents the return of the fetch.
+// - artistsInfo : contains the description of all artists categories.
+// - aMusicalesImgs: contains the images from "Artes Musicales".
+// - aMixtasImgs: contains the images from "Artes Mixtas".
+// - aVisualesImgs: contains the images from "Artes Visuales".
+// - aMusicalesCover: contains the cover image for the "Artes Musicales" slider.
+// - aMixtasCover: contains the cover image for the "Artes Mixtas" slider.
+// - aVisualesCover: contains the cover image for the "Artes Visuales" slider.
 const Index = ({
   artistsInfo,
   aMusicalesImgs,
@@ -14,12 +23,12 @@ const Index = ({
   aMusicalesCover,
   aVisualesCover,
 }) => {
-  // TODO: SPREAD OPPERATE ALL THE aArtImgs while adding new IMG from the artist info
 
   // Destructuring Query into different portions
   const { aMixtas, aMusicales, aVisuales } = artistsInfo[0];
 
   // Merging all images from the specific category into a array.
+  // The merge is performed to attatch the cover image first.
   const aMusicalesImgsSlide = [aMusicalesCover, ...aMusicalesImgs];
   const aMixtasImgsSlide = [aMixtasCover, ...aMixtasImgs];
   const aVisualesImgsSlide = [aVisualesCover, ...aVisualesImgs];
@@ -35,9 +44,12 @@ const Index = ({
         <Nav />
 
         {/* Body wrapper div */}
-        <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white font-body">
-          <div className="grid lg:grid-cols-2 min-h-screen justify-center items-center py-20 sm:p-10 ">
-            {/* LeftSwiperText is a component with a Swiper to the left and text to the right */}
+        <div className="min-h-screen bg-black flex flex-col 
+        items-center justify-center text-white font-body">
+          <div className="grid lg:grid-cols-2 min-h-screen 
+          justify-center items-center py-20 sm:p-10 ">
+            {/* LeftSwiperText is a component with a Swiper 
+            to the left and text to the right */}
             {/* accepts: title, description, and images */}
             <LeftSwiperText
               title={"Artes Musicales"}
@@ -45,7 +57,8 @@ const Index = ({
               images={aMusicalesImgsSlide}
             />
 
-            {/* RightSwiperText is a component with a Swiper to the right and text to the left */}
+            {/* RightSwiperText is a component with a Swiper 
+            to the right and text to the left */}
             {/* accepts: title, description, and images */}
             <RightSwiperText
               title={"Artes Visuales"}
@@ -53,7 +66,8 @@ const Index = ({
               images={aVisualesImgsSlide}
             />
 
-            {/* LeftSwiperText is a component with a Swiper to the left and text to the right */}
+            {/* LeftSwiperText is a component with a Swiper 
+            to the left and text to the right */}
             {/* accepts: title, description, and images */}
             <LeftSwiperText
               title={"Artes Mixtas"}
@@ -67,8 +81,7 @@ const Index = ({
   );
 };
 
-// export const getStaticProps = async ({ params }) => {
-export const getServerSideProps = async ({ params }) => {
+export const getServerSideProps = async () => {
   const query = `*[_type == "artists"]{
     aVisuales,
     aMusicales,
@@ -93,7 +106,8 @@ export const getServerSideProps = async ({ params }) => {
                 }
   
   }`;
-  const aMusicalesQuery = `*[_type == "posts" && category == "artesMusicales" && cover != "Cover"]{
+  const aMusicalesQuery = `*[_type == "posts" && category
+   == "artesMusicales" && cover != "Cover"]{
     slug,
     mainImage{
                     asset->{
@@ -102,7 +116,8 @@ export const getServerSideProps = async ({ params }) => {
                     }
                 }
 }`;
-  const aMixtasQuery = `*[_type == "posts" && category == "artesMixtas" && cover != "Cover"]{
+  const aMixtasQuery = `*[_type == "posts" && category
+   == "artesMixtas" && cover != "Cover"]{
     slug,
     mainImage{
                     asset->{
@@ -111,7 +126,8 @@ export const getServerSideProps = async ({ params }) => {
                     }
                 }
 }`;
-  const aVisualesQuery = `*[_type == "posts" && category == "artesVisuales" && cover != "Cover"]{
+  const aVisualesQuery = `*[_type == "posts" && category
+   == "artesVisuales" && cover != "Cover"]{
     slug,
     mainImage{
                     asset->{
@@ -120,7 +136,8 @@ export const getServerSideProps = async ({ params }) => {
                     }
                 }
 }`;
-  const aVisualesQueryCover = `*[_type == "posts" && category == "artesVisuales" && cover == "Cover"][0]{
+  const aVisualesQueryCover = `*[_type == "posts" && category
+   == "artesVisuales" && cover == "Cover"][0]{
     mainImage{
                     asset->{
                         _id,
@@ -128,7 +145,8 @@ export const getServerSideProps = async ({ params }) => {
                     }
                 }
 }`;
-  const aMixtasQueryCover = `*[_type == "posts" && category == "artesMixtas" && cover == "Cover"][0]{
+  const aMixtasQueryCover = `*[_type == "posts" && category
+   == "artesMixtas" && cover == "Cover"][0]{
     mainImage{
                     asset->{
                         _id,
@@ -136,7 +154,8 @@ export const getServerSideProps = async ({ params }) => {
                     }
                 }
 }`;
-  const aMusicalesQueryCover = `*[_type == "posts" && category == "artesMusicales" && cover == "Cover"][0]{
+  const aMusicalesQueryCover = `*[_type == "posts" && category
+   == "artesMusicales" && cover == "Cover"][0]{
     mainImage{
                     asset->{
                         _id,

@@ -3,7 +3,10 @@ import HoverItems from "../components/HoverItems";
 import SideText from "../components/SideText.js";
 import Link from "next/link";
 
-
+// Component accepts a props object with the following properties:
+// - title: the title of the link
+// - text: the text of the link
+// - href: the link to destination of the link
 export default function HomeLinkLeft({title, text, href}) {
     return (
       <div className="flex justify-center items-center m-4">

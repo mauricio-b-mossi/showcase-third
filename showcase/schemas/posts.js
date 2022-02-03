@@ -10,19 +10,6 @@ export default {
         "Si desea borrar presione CTRL + ALT + D, o en el post ir al botton a la par de PUBLISH, apretarlo, y alli aparecera la opcion DELETE",
       type: "string",
     },
-    // {
-    //   name: "cover",
-    //   title: "Cover",
-    //   description: "Marcar el botton 'Cover' si la imagen es la caratula de la seccion de arte",
-    //   type: "string",
-    //   options: {
-    //     list: [
-    //       { title: "Cover", value: "Cover" },
-    //       { title: "No Cover", value: "No Cover" },
-    //     ],
-    //     layout: "radio",
-    //   },
-    // },
     {
       name: "description",
       title: "Description",
@@ -66,3 +53,4 @@ export default {
     },
   ],
 };
+

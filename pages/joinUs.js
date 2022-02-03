@@ -6,6 +6,9 @@ import VideoSectionContainer from "../components/VideoSectionContainer";
 import BackgroundComponent from "../components/BackgroundComponent";
 import SEOComponent from "../components/SEOComponent";
 
+// Page receives a props object with the following properties:
+// - descriptionInfo : which contains the mainImage, title, description
+//                      descriptionTitle, and video of the JoinUs page.
 const JoinUs = ({descriptionInfo}) => {
 
   // Destructuring Query into different portions

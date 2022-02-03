@@ -2,11 +2,7 @@ export default {
   name: "home",
   title: "Home",
   type: "document",
-  // {
-  //   name: "",
-  //   title: "",
-  //   type: "",
-  // },
+
   fields: [
     {
       name: "title",
