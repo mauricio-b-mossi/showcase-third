@@ -59,7 +59,7 @@ const Anim = ({ intro }) => {
   return (
     // Component from FRAMERMOTION library
     <AnimatePresence>
-      {/* If intro is TRUE it animates */}
+
       {/* REMEMBER: intro is a boolean passed as a prop */}
       {intro && (
         <div className="absolute h-full w-full inset-0 z-10">
@@ -67,55 +67,37 @@ const Anim = ({ intro }) => {
             className="font-body text-5xl   min-h-screen bg-black text-white 
           flex flex-col items-center justify-center uppercase"
           >
+            {/* Parent/Animation Orchestrator */}
             <motion.div
               className="min-h-screen flex flex-col items-center justify-center"
               variants={parentAnim}
               initial="initial"
               animate="animate"
             >
+
+              {/* ChildText #1 */}
               <motion.div
                 variants={childAnim}
                 className="absolute"
-                initial={{}}
               >
                 Welcome
               </motion.div>
+
+              {/* ChildText #2 */}
               <motion.div variants={childAnim} className="absolute">
                 To
               </motion.div>
+
+              {/* ChildText #3 */}
               <motion.div variants={childAnim} className="absolute">
                 Showcase
               </motion.div>
 
-              {/* Contitionally renders the image based on the screen size*/}
-              {/* {isSmall ? (
-                <motion.div
-                  className="absolute h-img-h w-img-w"
-                  variants={imageAnim}
-                  // Animates the image on EXIT to the absolute position
-                  exit={{
-                    top: "48px",
-                    left: "48px",
-                    height: "96px",
-                    width: "96px",
-                    transition: {
-                      duration: 2,
-                    },
-                  }}
-                >
-                  <Image
-                    src="/showcase.webp"
-                    alt=""
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                </motion.div>
-              ) : ( */}
+              {/* ChildLogo #4 */}
               <motion.div
                 className="absolute h-img-h-sm w-img-w-sm"
                 variants={imageAnim}
                 // Animates the image on EXIT to the absolute position
-
                 exit={
                   isSmall
                     ? {
@@ -138,6 +120,7 @@ const Anim = ({ intro }) => {
                       }
                 }
               >
+                {/* Logo Image */}
                 <Image
                   src="/showcase.webp"
                   alt=""
@@ -145,7 +128,7 @@ const Anim = ({ intro }) => {
                   objectFit="contain"
                 />
               </motion.div>
-              {/* )} */}
+
             </motion.div>
           </div>
         </div>

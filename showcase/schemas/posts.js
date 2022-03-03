@@ -7,7 +7,9 @@ export default {
       name: "title",
       title: "Title",
       description:
-        "Si desea borrar presione CTRL + ALT + D, o en el post ir al botton a la par de PUBLISH, apretarlo, y alli aparecera la opcion DELETE",
+        `Si desea borrar presione CTRL + ALT + D,
+         o en el post ir al botton a la par de PUBLISH,
+          apretarlo, y alli aparecera la opcion DELETE`,
       type: "string",
     },
     {

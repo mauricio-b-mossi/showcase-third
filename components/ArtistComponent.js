@@ -30,7 +30,7 @@ export default function ArtistComponent({ title, description, images }) {
     
       <ReturnArrow link="/artists"/>
 
-      <div className="grid md:grid-cols-2 min-h-screen justify-center items-center ">
+      <div className="grid md:grid-cols-2 justify-center items-center ">
         <div className="flex flex-col justify-center items-center">
           <h1 className="uppercase text-center text-5xl lg:text-7xl  py-4 md:py-16 font-bold">
             <div>{title}</div>

@@ -27,7 +27,8 @@ const getToKnowUs = ({ members, page }) => {
         {/* Background image setter component */}
         <BackgroundComponent image={mainImage.asset.url} />
 
-        <div className="max-h-screen bg-black  items-center justify-center text-white font-body">
+        <div className="max-h-screen bg-black  items-center justify-center
+         text-white font-body">
 
           {/* Meet The Team title Component */}
           <MeetTheTeamTitle />

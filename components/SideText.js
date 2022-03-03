@@ -39,3 +39,4 @@ const SideText = ({ sideText }) => {
 };
 
 export default SideText;
+

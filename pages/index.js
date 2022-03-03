@@ -18,7 +18,8 @@ const Home = ({ homeInfo }) => {
   // While intro is True the body of the page will be hidden
   const [intro, setIntro] = useState(true);
 
-  // React hook that sets Into to false after 3 seconds/the duration of the animation
+  // React hook that sets Into to false after 3 seconds/the duration 
+  // of the animation
   useEffect(() => {
     setTimeout(() => {
       setIntro(false);
@@ -40,17 +41,40 @@ const Home = ({ homeInfo }) => {
       <MobileBackground image={mainImage.asset.url} />
 
       {/* Body Wrapper div */}
-      <div className=" font-body text-5xl min-h-screen flex flex-col items-center  justify-center uppercase  relative overflow-hidden ">
+      <div
+        className=" font-body text-5xl min-h-screen flex flex-col items-center
+        justify-center uppercase  relative overflow-hidden "
+      >
         {/* Showcase Logo in the corner */}
         <CornerLogo />
 
         {/* All the individual link components */}
         {/* They accept 3 props: The title, the link description text, and the route */}
-        <HomeLinkRight title={"Home"} text={home} href={"/"} />
-        <HomeLinkLeft title={"Artists"} text={artists} href={"/artists"} />
-        <HomeLinkRight title={"Join-us"} text={joinus} href={"/joinUs"} />
-        <HomeLinkLeft title={"About"} text={about} href={"/about"} />
-        <HomeLinkRight title={"Crew"} text={team} href={"/getToKnowUs"} />
+        <HomeLinkRight
+          title={"Home"}
+          text={home}
+          href={"/"}
+          color={"text-red-300"}
+        />
+        <HomeLinkLeft
+          title={"Artists"}
+          text={artists}
+          href={"/artists"}
+          color={"text-yellow-300"}
+        />
+        <HomeLinkRight
+          title={"Join-us"}
+          text={joinus}
+          href={"/joinUs"}
+          color={"text-green-300"}
+        />
+        <HomeLinkLeft
+          title={"About"}
+          text={about}
+          href={"/about"}
+          color={"text-blue-300"}
+        />
+        <HomeLinkRight title={"Crew"} text={team} href={"/getToKnowUs"} color={"text-yellow-600"} />
 
         {/* Social icon component at the bottom of the homescreen */}
         {/* It accepts 2 props: The link to the social media, and the icon */}

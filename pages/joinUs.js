@@ -9,13 +9,13 @@ import SEOComponent from "../components/SEOComponent";
 // Page receives a props object with the following properties:
 // - descriptionInfo : which contains the mainImage, title, description
 //                      descriptionTitle, and video of the JoinUs page.
-const JoinUs = ({descriptionInfo}) => {
-
+const JoinUs = ({ descriptionInfo }) => {
   // Destructuring Query into different portions
-  const { title, mainImage, description, descriptionTitle, video } = descriptionInfo
-  
+  const { title, mainImage, description, descriptionTitle, video } =
+    descriptionInfo;
+
   // Splitting title into a array based on " " characters
-  const splitTitle = title.split(" ")
+  const splitTitle = title.split(" ");
 
   return (
     <>
@@ -24,25 +24,26 @@ const JoinUs = ({descriptionInfo}) => {
 
       {/* Whole page wrapper div */}
       <div className="overflow-x-hidden">
-
         {/* Navigation Bar Component */}
-              <Nav />
+        <Nav />
 
         {/* Background image setter component */}
-              <BackgroundComponent image={mainImage.asset.url} />
+        <BackgroundComponent image={mainImage.asset.url} />
 
         {/* Wrapper div that contains the body of the page*/}
-        <div className="max-h-screen bg-black  items-center justify-center text-white font-body">
-          
+        <div
+          className="max-h-screen bg-black  items-center justify-center
+         text-white font-body"
+        >
           {/* Join us title Component */}
-                <JoinUsTitle
-                  splitTitle={splitTitle}
-                  descriptionTitle={descriptionTitle}
-                  description={description}
+          <JoinUsTitle
+            splitTitle={splitTitle}
+            descriptionTitle={descriptionTitle}
+            description={description}
           />
           {/* Youtube Video Component */}
-                <VideoSectionContainer video={video} />
-              </div>
+          <VideoSectionContainer video={video} />
+        </div>
       </div>
     </>
   );

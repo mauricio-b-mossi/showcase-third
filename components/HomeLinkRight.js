@@ -7,14 +7,14 @@ import Link from "next/link";
 // - title: the title of the link
 // - text: the text of the link
 // - href: the link to destination of the link
-export default function HomeLinkRight({title, text, href}) {
+export default function HomeLinkRight({title, text, href, color}) {
     return (
       <div className="flex justify-center items-center m-4 ">
         <Link href={href}>
           <a>
             <HoverItems
               text={title}
-              position={"text-white hover:text-red-300 cursor-pointer"}
+              position={`text-white hover:${color} cursor-pointer`}
             />
           </a>
         </Link>
