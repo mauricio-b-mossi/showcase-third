@@ -37,6 +37,7 @@ export default function App({list}) {
       >
 
         {/* Separate each image into <SwiperSlide/> components */}
+
         {list &&
           list.map((img, index) => (
             <SwiperSlide key={index}>
@@ -44,8 +45,6 @@ export default function App({list}) {
                 <Link href={img ? "/artists/" + img.slug.current : '/artists'}>
                   <a>
                     <Image
-                      // Safety to ensure that if image is corrupted,
-                      // it will not crash the app
                       src={img ? img.mainImage.asset.url : "/artsyBG.jpg"}
                       alt="Art Image"
                       width="900"
@@ -58,6 +57,7 @@ export default function App({list}) {
               }
             </SwiperSlide>
           ))}
+        
       </Swiper>
     </>
   );

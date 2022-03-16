@@ -27,7 +27,7 @@ const Nav = () => {
               </div>
             </Link>
             <div className="text-white text-sm font-normal fixed h-24 
-            w-40top-4 right-6 flex flex-col justify-center items-end">
+            w-40 top-4 right-6 flex flex-col justify-center items-end">
               {/* Home nav item */}
               <Link href="/">
                 <a>
