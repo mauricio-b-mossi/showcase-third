@@ -102,7 +102,8 @@ const AboutDemo = ({ about }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
+// export const getStaticProps = async () => {
   const query = `*[_type == "aboutUs"][0]{
     title,
     mainImage{

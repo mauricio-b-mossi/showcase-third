@@ -41,7 +41,8 @@ const getToKnowUs = ({ members, page }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
+  // export const getStaticProps = async () => {
   const membersQuery = `*[_type == "members"]| order(order){
     name,
     position,

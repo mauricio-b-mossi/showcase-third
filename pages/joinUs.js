@@ -49,7 +49,8 @@ const JoinUs = ({ descriptionInfo }) => {
   );
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async () => {
+// export const getStaticProps = async ({ params }) => {
   const query = `*[_type == "joinUs"][0]{
     title,
     mainImage{

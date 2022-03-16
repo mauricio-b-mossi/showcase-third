@@ -87,7 +87,8 @@ const Home = ({ homeInfo }) => {
   );
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async () => {
+// export const getStaticProps = async ({ params }) => {
   const query = `*[_type == "home"]{
       mainImage{
                     asset->{
