@@ -25,8 +25,8 @@ const getToKnowUs = ({ members, page }) => {
         <Nav />
 
         {/* Background image setter component */}
-  {mainImage.asset.url && 
-        <BackgroundComponent image={mainImage.asset.url} />}
+  {mainImage.asset.url ? 
+        <BackgroundComponent image={mainImage.asset.url} /> : null}
 
         <div className="max-h-screen bg-black  items-center justify-center
          text-white font-body">
